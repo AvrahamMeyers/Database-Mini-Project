@@ -1,0 +1,822 @@
+[
+    {
+        "type": "Entity",
+        "details": {
+            "name": "Flight",
+            "type": "regular",
+            "x": 624,
+            "y": 128,
+            "isDisjointed": true,
+            "isTotalSpecialization": true,
+            "isSubtype": false,
+            "supertypeEntityId": null,
+            "id": 1
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Source Airport ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 376,
+            "y": 98,
+            "id": 2
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Destination Airport ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 422,
+            "y": 43,
+            "id": 4
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Departure Time",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 529,
+            "y": 31,
+            "id": 6
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Arrival Time",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 861,
+            "y": 61,
+            "id": 8
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Aircraft ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 751,
+            "y": 37,
+            "id": 10
+        }
+    },
+    {
+        "type": "Entity",
+        "details": {
+            "name": "Aircraft",
+            "type": "regular",
+            "x": 1237,
+            "y": 129.5,
+            "isDisjointed": true,
+            "isTotalSpecialization": true,
+            "isSubtype": false,
+            "supertypeEntityId": null,
+            "id": 14
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Aircraft Type",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1201,
+            "y": 39.5,
+            "id": 15
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Current Status",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1314,
+            "y": 44.5,
+            "id": 17
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Assigned To Flight",
+            "isIdentifying": false,
+            "x": 1000,
+            "y": 87,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 14
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 1
+                }
+            ],
+            "id": 19
+        }
+    },
+    {
+        "type": "Entity",
+        "details": {
+            "name": "Crew",
+            "type": "regular",
+            "x": 146,
+            "y": 180.5,
+            "isDisjointed": true,
+            "isTotalSpecialization": true,
+            "isSubtype": false,
+            "supertypeEntityId": null,
+            "id": 22
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Crew Type",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 88,
+            "y": 104.5,
+            "id": 23
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Member Name",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 151,
+            "y": 260.5,
+            "id": 25
+        }
+    },
+    {
+        "type": "Entity",
+        "details": {
+            "name": "Gate",
+            "type": "regular",
+            "x": 123,
+            "y": 500.5,
+            "isDisjointed": true,
+            "isTotalSpecialization": true,
+            "isSubtype": false,
+            "supertypeEntityId": null,
+            "id": 27
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Terminal Name",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 80,
+            "y": 402.5,
+            "id": 28
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Gate Number",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 74,
+            "y": 586.5,
+            "id": 30
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Flight_Crew",
+            "isIdentifying": false,
+            "x": 315,
+            "y": 169,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 1
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 22
+                }
+            ],
+            "id": 32
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Arrival_Gate",
+            "isIdentifying": false,
+            "x": 354,
+            "y": 278,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 1
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "optional",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 27
+                }
+            ],
+            "id": 35
+        }
+    },
+    {
+        "type": "Entity",
+        "details": {
+            "name": "Passenger",
+            "type": "regular",
+            "x": 1299,
+            "y": 295.5,
+            "isDisjointed": true,
+            "isTotalSpecialization": true,
+            "isSubtype": false,
+            "supertypeEntityId": null,
+            "id": 41
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Name",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1455,
+            "y": 307.5,
+            "id": 42
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Ticket Number",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1449,
+            "y": 237.5,
+            "id": 44
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Flight Number",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1340,
+            "y": 200.5,
+            "id": 46
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Connecting Flight Number",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1411,
+            "y": 367.5,
+            "id": 48
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Passengers Flight",
+            "isIdentifying": false,
+            "x": 928,
+            "y": 208,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "optional",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 1
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 41
+                }
+            ],
+            "id": 66
+        }
+    },
+    {
+        "type": "Entity",
+        "details": {
+            "name": "Weather",
+            "type": "regular",
+            "x": 1220,
+            "y": 528.5,
+            "isDisjointed": true,
+            "isTotalSpecialization": true,
+            "isSubtype": false,
+            "supertypeEntityId": null,
+            "id": 69
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Conditions",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1386,
+            "y": 595.5,
+            "id": 70
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Source Airport",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1379,
+            "y": 459.5,
+            "id": 72
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Destination Airport",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1393,
+            "y": 539.5,
+            "id": 74
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Update Time",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 1249,
+            "y": 622.5,
+            "id": 78
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Current Weather",
+            "isIdentifying": false,
+            "x": 919,
+            "y": 317,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "optional",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 1
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 69
+                }
+            ],
+            "id": 80
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Flight Number",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": true,
+            "x": 638,
+            "y": 25,
+            "id": 104
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Crew ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": true,
+            "x": 236,
+            "y": 99.5,
+            "id": 106
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Aircraft ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": true,
+            "x": 1361,
+            "y": 108.5,
+            "id": 108
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Gate ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": true,
+            "x": 210,
+            "y": 588.5,
+            "id": 110
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Passenger ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": true,
+            "x": 1191,
+            "y": 209.5,
+            "id": 112
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Weather ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": true,
+            "x": 1222,
+            "y": 431.5,
+            "id": 114
+        }
+    },
+    {
+        "type": "Entity",
+        "details": {
+            "name": "Airport",
+            "type": "regular",
+            "x": 600,
+            "y": 575.5,
+            "isDisjointed": true,
+            "isTotalSpecialization": true,
+            "isSubtype": false,
+            "supertypeEntityId": null,
+            "id": 118
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Airport ID",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": true,
+            "x": 453,
+            "y": 579.5,
+            "id": 119
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "Name",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 646,
+            "y": 661.5,
+            "id": 121
+        }
+    },
+    {
+        "type": "Attribute",
+        "details": {
+            "name": "City",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 503,
+            "y": 652.5,
+            "id": 123
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Relationship",
+            "isIdentifying": false,
+            "x": 369,
+            "y": 496,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 27
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 118
+                }
+            ],
+            "id": 125
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Destination Airport",
+            "isIdentifying": false,
+            "x": 536,
+            "y": 455,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "optional",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 118
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 1
+                }
+            ],
+            "id": 128
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Source Airport",
+            "isIdentifying": false,
+            "x": 673,
+            "y": 457,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 118
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 1
+                }
+            ],
+            "id": 131
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Departure Gate",
+            "isIdentifying": false,
+            "x": 374,
+            "y": 387,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 27
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 1
+                }
+            ],
+            "id": 134
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Source Airport",
+            "isIdentifying": false,
+            "x": 888,
+            "y": 459,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "optional",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 118
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 69
+                }
+            ],
+            "id": 137
+        }
+    },
+    {
+        "type": "Relationship",
+        "details": {
+            "name": "Destination Airport",
+            "isIdentifying": false,
+            "x": 918,
+            "y": 604,
+            "slots": [
+                {
+                    "slotIndex": 0,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "optional",
+                    "cardinality": "one",
+                    "role": "",
+                    "entityId": 118
+                },
+                {
+                    "slotIndex": 1,
+                    "minimum": "",
+                    "maximum": "",
+                    "participation": "mandatory",
+                    "cardinality": "many",
+                    "role": "",
+                    "entityId": 69
+                }
+            ],
+            "id": 140
+        }
+    }
+]
