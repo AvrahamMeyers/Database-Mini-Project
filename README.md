@@ -9,3 +9,5 @@ This involves the following entities:
 • terminal/gate
 • timing the arrival of connecting passengers
 • weather at source/destination, en-route
+
+![alt text](erd.png)
