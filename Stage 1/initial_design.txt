@@ -1,0 +1,50 @@
+Flight:
+flight_number (Primary Key)
+departure_airport
+arrival_airport
+departure_time
+arrival_time
+aircraft_id (Foreign Key referencing Aircraft)
+
+Aircraft:
+aircraft_id (Primary Key)
+aircraft_type
+current_status
+
+Crew:
+crew_id (Primary Key)
+crew_type
+crew_name
+
+Terminal/Gate:
+terminal_id (Primary Key)
+terminal_name
+gate_number
+
+Passenger:
+passenger_id (Primary Key)
+passenger_name
+ticket_number
+connecting_flight_number (Foreign Key referencing Flight)
+
+Weather:
+weather_id (Primary Key)
+source_airport
+destination_airport
+weather_conditions
+update_time
+
+Airport:
+airport_code (Primary Key)
+airport_name
+location
+
+Flight-Aircraft: One-to-One relationship between Flight and Aircraft. Each flight is assigned to one aircraft, and each aircraft is assigned to one flight.
+Flight-Crew: Many-to-Many relationship between Flight and Crew. Each flight may have multiple crew members, and each crew member may be assigned to multiple flights.
+Flight-Terminal/Gate: Many-to-One relationship between Flight and Terminal/Gate. Each flight departs from and arrives at a specific terminal or gate.
+Flight-Passenger: One-to-Many relationship between Flight and Passenger. Each flight can have multiple passengers, but each passenger is associated with only one flight.
+Weather-Flight: One-to-Many relationship between Weather and Flight. Each flight can have weather information associated with it, but weather data is specific to each flight.
+Flight-DepartureAirport: Many-to-One relationship between Flight and Airport for the departure airport. Each flight departs from one airport, and each airport can have multiple departing flights.
+Flight-ArrivalAirport: Many-to-One relationship between Flight and Airport for the arrival airport. Each flight arrives at one airport, and each airport can have multiple arriving flights.
+Weather-SourceAirport: Many-to-One relationship between Weather and Airport for the source airport. Each weather report is associated with one source airport, and each airport can have multiple weather reports.
+Weather-DestinationAirport: Many-to-One relationship between Weather and Airport for the destination airport. Each weather report is associated with one destination airport, and each airport can have multiple weather reports.
