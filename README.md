@@ -10,4 +10,5 @@ This involves the following entities:
 • timing the arrival of connecting passengers
 • weather at source/destination, en-route
 
+ERD:
 ![alt text](erd.png)
