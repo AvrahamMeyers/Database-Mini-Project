@@ -11,4 +11,4 @@ This involves the following entities:
 • weather at source/destination, en-route
 
 ERD:
-![alt text](erd.png)
+![alt text](<Stage 1/erd.png>)
