@@ -16,34 +16,6 @@
     {
         "type": "Attribute",
         "details": {
-            "name": "Source Airport ID",
-            "isDerived": false,
-            "isMultivalued": false,
-            "isOptional": false,
-            "isComposite": false,
-            "isUnique": false,
-            "x": 376,
-            "y": 98,
-            "id": 2
-        }
-    },
-    {
-        "type": "Attribute",
-        "details": {
-            "name": "Destination Airport ID",
-            "isDerived": false,
-            "isMultivalued": false,
-            "isOptional": false,
-            "isComposite": false,
-            "isUnique": false,
-            "x": 422,
-            "y": 43,
-            "id": 4
-        }
-    },
-    {
-        "type": "Attribute",
-        "details": {
             "name": "Departure Time",
             "isDerived": false,
             "isMultivalued": false,
@@ -67,20 +39,6 @@
             "x": 861,
             "y": 61,
             "id": 8
-        }
-    },
-    {
-        "type": "Attribute",
-        "details": {
-            "name": "Aircraft ID",
-            "isDerived": false,
-            "isMultivalued": false,
-            "isOptional": false,
-            "isComposite": false,
-            "isUnique": false,
-            "x": 751,
-            "y": 37,
-            "id": 10
         }
     },
     {
@@ -244,8 +202,8 @@
         "details": {
             "name": "Flight_Crew",
             "isIdentifying": false,
-            "x": 315,
-            "y": 169,
+            "x": 362,
+            "y": 163,
             "slots": [
                 {
                     "slotIndex": 0,
@@ -261,7 +219,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "many",
+                    "cardinality": "one",
                     "role": "",
                     "entityId": 22
                 }
@@ -272,7 +230,7 @@
     {
         "type": "Relationship",
         "details": {
-            "name": "Arrival_Gate",
+            "name": "Arrival Gate",
             "isIdentifying": false,
             "x": 354,
             "y": 278,
@@ -290,7 +248,7 @@
                     "slotIndex": 1,
                     "minimum": "",
                     "maximum": "",
-                    "participation": "optional",
+                    "participation": "mandatory",
                     "cardinality": "many",
                     "role": "",
                     "entityId": 27
@@ -342,34 +300,6 @@
         }
     },
     {
-        "type": "Attribute",
-        "details": {
-            "name": "Flight Number",
-            "isDerived": false,
-            "isMultivalued": false,
-            "isOptional": false,
-            "isComposite": false,
-            "isUnique": false,
-            "x": 1340,
-            "y": 200.5,
-            "id": 46
-        }
-    },
-    {
-        "type": "Attribute",
-        "details": {
-            "name": "Connecting Flight Number",
-            "isDerived": false,
-            "isMultivalued": false,
-            "isOptional": false,
-            "isComposite": false,
-            "isUnique": false,
-            "x": 1411,
-            "y": 367.5,
-            "id": 48
-        }
-    },
-    {
         "type": "Relationship",
         "details": {
             "name": "Passengers Flight",
@@ -382,7 +312,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "optional",
-                    "cardinality": "one",
+                    "cardinality": "many",
                     "role": "",
                     "entityId": 1
                 },
@@ -391,7 +321,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "many",
+                    "cardinality": "one",
                     "role": "",
                     "entityId": 41
                 }
@@ -430,34 +360,6 @@
     {
         "type": "Attribute",
         "details": {
-            "name": "Source Airport",
-            "isDerived": false,
-            "isMultivalued": false,
-            "isOptional": false,
-            "isComposite": false,
-            "isUnique": false,
-            "x": 1379,
-            "y": 459.5,
-            "id": 72
-        }
-    },
-    {
-        "type": "Attribute",
-        "details": {
-            "name": "Destination Airport",
-            "isDerived": false,
-            "isMultivalued": false,
-            "isOptional": false,
-            "isComposite": false,
-            "isUnique": false,
-            "x": 1393,
-            "y": 539.5,
-            "id": 74
-        }
-    },
-    {
-        "type": "Attribute",
-        "details": {
             "name": "Update Time",
             "isDerived": false,
             "isMultivalued": false,
@@ -470,36 +372,6 @@
         }
     },
     {
-        "type": "Relationship",
-        "details": {
-            "name": "Current Weather",
-            "isIdentifying": false,
-            "x": 919,
-            "y": 317,
-            "slots": [
-                {
-                    "slotIndex": 0,
-                    "minimum": "",
-                    "maximum": "",
-                    "participation": "optional",
-                    "cardinality": "one",
-                    "role": "",
-                    "entityId": 1
-                },
-                {
-                    "slotIndex": 1,
-                    "minimum": "",
-                    "maximum": "",
-                    "participation": "mandatory",
-                    "cardinality": "many",
-                    "role": "",
-                    "entityId": 69
-                }
-            ],
-            "id": 80
-        }
-    },
-    {
         "type": "Attribute",
         "details": {
             "name": "Flight Number",
@@ -508,7 +380,7 @@
             "isOptional": false,
             "isComposite": false,
             "isUnique": true,
-            "x": 638,
+            "x": 641,
             "y": 25,
             "id": 104
         }
@@ -652,7 +524,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "many",
+                    "cardinality": "one",
                     "role": "",
                     "entityId": 27
                 },
@@ -661,7 +533,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "one",
+                    "cardinality": "many",
                     "role": "",
                     "entityId": 118
                 }
@@ -672,7 +544,7 @@
     {
         "type": "Relationship",
         "details": {
-            "name": "Destination Airport",
+            "name": "Arrival Airport",
             "isIdentifying": false,
             "x": 536,
             "y": 455,
@@ -681,8 +553,8 @@
                     "slotIndex": 0,
                     "minimum": "",
                     "maximum": "",
-                    "participation": "optional",
-                    "cardinality": "one",
+                    "participation": "mandatory",
+                    "cardinality": "many",
                     "role": "",
                     "entityId": 118
                 },
@@ -691,7 +563,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "many",
+                    "cardinality": "one",
                     "role": "",
                     "entityId": 1
                 }
@@ -702,7 +574,7 @@
     {
         "type": "Relationship",
         "details": {
-            "name": "Source Airport",
+            "name": "Departure Airport",
             "isIdentifying": false,
             "x": 673,
             "y": 457,
@@ -712,7 +584,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "one",
+                    "cardinality": "many",
                     "role": "",
                     "entityId": 118
                 },
@@ -721,7 +593,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "many",
+                    "cardinality": "one",
                     "role": "",
                     "entityId": 1
                 }
@@ -744,7 +616,7 @@
                     "participation": "mandatory",
                     "cardinality": "one",
                     "role": "",
-                    "entityId": 27
+                    "entityId": 1
                 },
                 {
                     "slotIndex": 1,
@@ -753,7 +625,7 @@
                     "participation": "mandatory",
                     "cardinality": "many",
                     "role": "",
-                    "entityId": 1
+                    "entityId": 27
                 }
             ],
             "id": 134
@@ -762,7 +634,7 @@
     {
         "type": "Relationship",
         "details": {
-            "name": "Source Airport",
+            "name": "Airport Weather",
             "isIdentifying": false,
             "x": 888,
             "y": 459,
@@ -781,7 +653,7 @@
                     "minimum": "",
                     "maximum": "",
                     "participation": "mandatory",
-                    "cardinality": "many",
+                    "cardinality": "one",
                     "role": "",
                     "entityId": 69
                 }
@@ -790,33 +662,17 @@
         }
     },
     {
-        "type": "Relationship",
+        "type": "Attribute",
         "details": {
-            "name": "Destination Airport",
-            "isIdentifying": false,
-            "x": 918,
-            "y": 604,
-            "slots": [
-                {
-                    "slotIndex": 0,
-                    "minimum": "",
-                    "maximum": "",
-                    "participation": "optional",
-                    "cardinality": "one",
-                    "role": "",
-                    "entityId": 118
-                },
-                {
-                    "slotIndex": 1,
-                    "minimum": "",
-                    "maximum": "",
-                    "participation": "mandatory",
-                    "cardinality": "many",
-                    "role": "",
-                    "entityId": 69
-                }
-            ],
-            "id": 140
+            "name": "Status",
+            "isDerived": false,
+            "isMultivalued": false,
+            "isOptional": false,
+            "isComposite": false,
+            "isUnique": false,
+            "x": 281,
+            "y": 544.5,
+            "id": 169
         }
     }
 ]
