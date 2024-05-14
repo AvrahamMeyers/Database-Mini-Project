@@ -48,3 +48,11 @@ Flight-DepartureAirport: Many-to-One relationship between Flight and Airport for
 Flight-ArrivalAirport: Many-to-One relationship between Flight and Airport for the arrival airport. Each flight arrives at one airport, and each airport can have multiple arriving flights.
 Weather-SourceAirport: Many-to-One relationship between Weather and Airport for the source airport. Each weather report is associated with one source airport, and each airport can have multiple weather reports.
 Weather-DestinationAirport: Many-to-One relationship between Weather and Airport for the destination airport. Each weather report is associated with one destination airport, and each airport can have multiple weather reports.
+
+
+300 flights
+150 passengers / flight = 45000
+20 crew / flight = 6000
+20 airports
+50 gates / aiport = 1000
+100 planes
