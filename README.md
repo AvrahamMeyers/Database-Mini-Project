@@ -12,3 +12,7 @@ This involves the following entities:
 
 ERD:
 ![alt text](<Stage 1/erd.png>)
+
+
+DSD:
+![alt text](<Stage 1/DSD.png>)
