@@ -7,7 +7,6 @@ This involves the following entities:
 • aircraft assignment
 • crew assignment
 • terminal/gate
-• timing the arrival of connecting passengers
 • weather at source/destination, en-route
 
 ERD:
