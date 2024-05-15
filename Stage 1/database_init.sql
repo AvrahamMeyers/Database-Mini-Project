@@ -17,9 +17,9 @@ CREATE TYPE flight_status as ENUM ("On time", "Delayed", "Cancelled");
 
 CREATE TABLE Aircraft
 (
+  Aircraft_ID INT NOT NULL,
   Aircraft_Type aircraft_type NOT NULL,
   Current_Status aircraft_status NOT NULL,
-  Aircraft_ID INT NOT NULL,
   PRIMARY KEY (Aircraft_ID)
 );
 
@@ -33,9 +33,9 @@ CREATE TABLE Airport
 
 CREATE TABLE Gate
 (
+  Gate_ID INT NOT NULL,
   Terminal_Name terminal_name NOT NULL,
   Gate_Number INT NOT NULL,
-  Gate_ID INT NOT NULL,
   Status VARCHAR NOT NULL,
   Airport_ID INT NOT NULL,
   PRIMARY KEY (Gate_ID),
@@ -44,9 +44,9 @@ CREATE TABLE Gate
 
 CREATE TABLE Weather
 (
+  Weather_ID INT NOT NULL,
   Conditions weather_condition NOT NULL,
   Update_Time DATE NOT NULL,
-  Weather_ID INT NOT NULL,
   Airport_ID INT NOT NULL,
   PRIMARY KEY (Weather_ID),
   FOREIGN KEY (Airport_ID) REFERENCES Airport(Airport_ID)
@@ -54,9 +54,9 @@ CREATE TABLE Weather
 
 CREATE TABLE Flight
 (
+  Flight_Number INT NOT NULL,
   Departure_Time DATE NOT NULL,
   Arrival_Time DATE NOT NULL,
-  Flight_Number INT NOT NULL,
   Flight_Status flight_status NOT NULL,
   Aircraft_ID INT NOT NULL,
   Departure_Gate_ID INT NOT NULL,
@@ -73,9 +73,9 @@ CREATE TABLE Flight
 
 CREATE TABLE Crew
 (
+  Crew_ID INT NOT NULL,
   Crew_Type crew_type NOT NULL,
   Member_Name VARCHAR NOT NULL,
-  Crew_ID INT NOT NULL,
   Flight_Number INT,
   PRIMARY KEY (Crew_ID),
   FOREIGN KEY (Flight_Number) REFERENCES Flight(Flight_Number)
@@ -83,9 +83,9 @@ CREATE TABLE Crew
 
 CREATE TABLE Passenger
 (
+  Passenger_ID INT NOT NULL,
   Name VARCHAR NOT NULL,
   Ticket_Number INT NOT NULL,
-  Passenger_ID INT NOT NULL,
   Flight_Number INT NOT NULL,
   PRIMARY KEY (Passenger_ID),
   FOREIGN KEY (Flight_Number) REFERENCES Flight(Flight_Number)
