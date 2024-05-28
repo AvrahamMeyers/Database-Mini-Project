@@ -18,10 +18,4 @@ DSD:
 
 
 Output from copy data file:
-COPY 20000\n
-COPY 5000\n
-COPY 25000\n
-COPY 50000\n
-COPY 50000\n
-COPY 100000\n
-COPY 50000\n
+![alt text](image.png)
