@@ -17,3 +17,4 @@ DROP TYPE IF EXISTS crew_type;
 DROP TYPE IF EXISTS gate_status;
 DROP TYPE IF EXISTS weather_condition;
 DROP TYPE IF EXISTS aircraft_type;
+
