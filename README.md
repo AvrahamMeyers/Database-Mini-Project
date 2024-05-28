@@ -15,3 +15,13 @@ ERD:
 
 DSD:
 ![alt text](<Stage 1/DSD.png>)
+
+
+Output from copy data file:
+COPY 20000
+COPY 5000
+COPY 25000
+COPY 50000
+COPY 50000
+COPY 100000
+COPY 50000
