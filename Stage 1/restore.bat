@@ -17,8 +17,6 @@ REM Optional: Drop and recreate the database
 REM psql -U %PGUSER% -c "DROP DATABASE IF EXISTS %PGDATABASE%"
 REM psql -U %PGUSER% -c "CREATE DATABASE %PGDATABASE%"
 
-echo %DUMP_FILE%
-
 psql -h %PGHOST% -U %PGUSER% -d %PGDATABASE% -f "%DUMP_FILE%"
 
 REM Check if the restore was successful
