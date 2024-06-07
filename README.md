@@ -29,14 +29,20 @@ Our system for scheduling is modeled around the **Flight** entity, as we account
 - **Weather**:
   - Many-to-One relationship with **Airport**: Weather data is recorded for a specific airport at a specific time. An airport can have multiple weather entries over time.
 
-ERD:
+### ERD Diagram
 ![alt text](<Stage 1/erd.png>)
 
 
-DSD:
+### DSD Diagram
 ![alt text](<Stage 1/DSD.png>)
 
+### Repository Files
+- First run the following file:
+- The drop file to delete the database: 
+- 
 
-Output from copy data file:
+
+
+### Output from copy data file:
 
 ![alt text](image.png)
