@@ -2,7 +2,7 @@
 # Work By: Avraham Meyers and Eli Isaacs
 
 As part of the class project of an airline management system, we are tasked with the scheduling system.
-This involves the following entities:
+This involves the following entities:  
 • Flight
 • Aircraft
 • Crew
