@@ -3,11 +3,14 @@
 
 As part of the class project of an airline management system, we are tasked with the scheduling system.
 This involves the following entities:
-• flight numbering
-• aircraft assignment
-• crew assignment
-• terminal/gate
-• weather at source/destination, en-route
+• Flight
+• Aircraft
+• Crew
+• Gate
+• Airport
+• Weather
+
+Our system 
 
 ERD:
 ![alt text](<Stage 1/erd.png>)
