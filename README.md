@@ -1,5 +1,5 @@
-# Database-Mini-Project
-Mini Project work by Avraham Meyers and Eli Isaacs
+# AirlineSchedulingSystem_DatabaseProject
+# Work By: Avraham Meyers and Eli Isaacs
 
 As part of the class project of an airline management system, we are tasked with the scheduling system.
 This involves the following entities:
