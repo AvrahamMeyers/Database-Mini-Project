@@ -37,9 +37,9 @@ Our system for scheduling is modeled around the **Flight** entity, as we account
 ![alt text](<Stage 1/DSD.png>)
 
 ### Repository Files
-- First run the following file:
-- The drop file to delete the database: 
-- 
+- First run the following file: [database_init.sql](https://github.com/AvrahamMeyers/Database-Mini-Project/blob/main/Stage%201/database_init.sql)
+- The drop file to delete the database: [drop.sql](https://github.com/AvrahamMeyers/Database-Mini-Project/blob/main/Stage%201/drop.sql)
+- The file to create randomly generated data: [create_data.ipynb](https://github.com/AvrahamMeyers/Database-Mini-Project/blob/main/Stage%201/create_data.ipynb)
 
 
 
