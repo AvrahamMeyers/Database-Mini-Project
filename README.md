@@ -64,7 +64,3 @@ We used batch files to run the pg_dump and pg_restore commands
 - Backup Log File: [backupPSQL.log](<PSQL Backup Files/backupPSQL.log>)
 - Restore File:[restorePSQL.bat](<PSQL Backup Files/restorePSQL.bat>)
 - Restore Log File: [restorePSQL.log](<PSQL Backup Files/restorePSQL.log>)
-
-
-
-
