@@ -52,11 +52,11 @@ TODO: add passenger info
 We used batch files to run the pg_dump and pg_restore commands
 
 # SQL Backup
--Backup File: [text](<SQL Backup Files/backupSQL.bat>)
--Output File: [text](<SQL Backup Files/backupSQL.sql>)
--Backup Log File: [text](<SQL Backup Files/backupSQL.log>)
--Restore File: [text](<SQL Backup Files/restoreSQL.bat>)
--Restore Log File: [text](<SQL Backup Files/restoreSQL.log>)
+-Backup File: ![alt text](<SQL Backup Files/backupSQL.bat>)
+-Output File: ![alt text](<SQL Backup Files/backupSQL.sql>)
+-Backup Log File: ![alt text](<SQL Backup Files/backupSQL.log>)
+-Restore File: ![alt text](<SQL Backup Files/restoreSQL.bat>)
+-Restore Log File: ![alt text](<SQL Backup Files/restoreSQL.log>)
 
 # PSQl Backup
 -Backup File: [text](<PSQL Backup Files/backupPSQL.bat>)
