@@ -52,18 +52,18 @@ TODO: add passenger info
 We used batch files to run the pg_dump and pg_restore commands
 
 # SQL Backup
--Backup File: ![alt text](<SQL Backup Files/backupSQL.bat>)
--Output File: ![alt text](<SQL Backup Files/backupSQL.sql>)
--Backup Log File: ![alt text](<SQL Backup Files/backupSQL.log>)
--Restore File: ![alt text](<SQL Backup Files/restoreSQL.bat>)
--Restore Log File: ![alt text](<SQL Backup Files/restoreSQL.log>)
+-Backup File: [backupSQL.bat](<SQL Backup Files/backupSQL.bat>)
+-Output File: [backupSQL.sql](<SQL Backup Files/backupSQL.sql>)
+-Backup Log File: [backupSQL.log](<SQL Backup Files/backupSQL.log>)
+-Restore File: [restoreSQL.bat](<SQL Backup Files/restoreSQL.bat>)
+-Restore Log File: [restoreSQL.log](<SQL Backup Files/restoreSQL.log>)
 
 # PSQl Backup
--Backup File: [text](<PSQL Backup Files/backupPSQL.bat>)
--Output File: [text](<PSQL Backup Files/backupPSQL.sql>)
--Backup Log File: [text](<PSQL Backup Files/backupPSQL.log>)
--Restore File:[text](<PSQL Backup Files/restorePSQL.bat>)
--Restore Log File: [text](<PSQL Backup Files/restorePSQL.log>)
+-Backup File: [backupPSQL.bat](<PSQL Backup Files/backupPSQL.bat>)
+-Output File: [backupPSQL.sql](<PSQL Backup Files/backupPSQL.sql>)
+-Backup Log File: [backupPSQL.log](<PSQL Backup Files/backupPSQL.log>)
+-Restore File:[restorePSQL.bat](<PSQL Backup Files/restorePSQL.bat>)
+-Restore Log File: [restorePSQL.log](<PSQL Backup Files/restorePSQL.log>)
 
 
 
