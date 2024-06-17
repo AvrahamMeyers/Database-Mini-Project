@@ -45,7 +45,7 @@ Our system for scheduling is modeled around the **Flight** entity, as we account
 ![alt text](image.png)
 
 
-### Backups
+### Backup and Restore
 
 We used batch files to run the pg_dump and pg_restore commands
 
