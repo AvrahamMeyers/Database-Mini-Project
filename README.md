@@ -64,3 +64,20 @@ We used batch files to run the pg_dump and pg_restore commands
 - Backup Log File: [backupPSQL.log](<PSQL Backup Files/backupPSQL.log>)
 - Restore File:[restorePSQL.bat](<PSQL Backup Files/restorePSQL.bat>)
 - Restore Log File: [restorePSQL.log](<PSQL Backup Files/restorePSQL.log>)
+
+
+### Queries:
+
+# Select Queries:
+1. Get all flights with gate, airport and weather information
+2. Get all airports and the total number of flights for each airport
+3. Get all flights that do not have a pilot
+4. Get all flights with matching weather conditions at the departure and arrival airports 
+
+# Update Queries:
+1. Update all flights whose destination was ... to ...
+2. Update all flights whose aircraft status was Boarding to flight status Gate Closed
+
+# Delete Queries:
+1. Delete all flights whose aircraft status is Under Maintenance
+2. Delete all airports that have less than 5 gates
