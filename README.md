@@ -41,8 +41,28 @@ Our system for scheduling is modeled around the **Flight** entity, as we account
 - The drop file to delete the database: [drop.sql](https://github.com/AvrahamMeyers/Database-Mini-Project/blob/main/Stage%201/drop.sql)
 - The file to create randomly generated data: [create_data.ipynb](https://github.com/AvrahamMeyers/Database-Mini-Project/blob/main/Stage%201/create_data.ipynb)
 
-
-
 ### Output from copy data file:
-
 ![alt text](image.png)
+
+
+### Backups
+
+We used batch files to run the pg_dump and pg_restore commands
+
+# SQL Backup
+-Backup File: [text](<SQL Backup Files/backupSQL.bat>)
+-Output File: [text](<SQL Backup Files/backupSQL.sql>)
+-Backup Log File: [text](<SQL Backup Files/backupSQL.log>)
+-Restore File: [text](<SQL Backup Files/restoreSQL.bat>)
+-Restore Log File: [text](<SQL Backup Files/restoreSQL.log>)
+
+# PSQl Backup
+-Backup File: [text](<PSQL Backup Files/backupPSQL.bat>)
+-Output File: [text](<PSQL Backup Files/backupPSQL.sql>)
+-Backup Log File: [text](<PSQL Backup Files/backupPSQL.log>)
+-Restore File:[text](<PSQL Backup Files/restorePSQL.bat>)
+-Restore Log File: [text](<PSQL Backup Files/restorePSQL.log>)
+
+
+
+
