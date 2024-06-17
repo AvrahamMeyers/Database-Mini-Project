@@ -9,6 +9,7 @@ As part of the class project of an airline management system, we are tasked with
 - Gate
 - Airport
 - Weather
+- Passengers
 
 Our system for scheduling is modeled around the **Flight** entity, as we account for all flight information to assign flights the proper aircraft, crew members, and the gates and airports for departure and arrival. Additionally, we account for the weather conditions at the respective airports.
 
