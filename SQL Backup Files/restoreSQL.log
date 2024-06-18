@@ -1,5 +1,8 @@
 Dropping the existing database... 
+dropdb: error: database removal failed: ERROR:  database "postgres" is being accessed by other users
+DETAIL:  There are 4 other sessions using the database.
 Creating a new database... 
+createdb: error: database creation failed: ERROR:  database "postgres" already exists
 Restoring the database... 
 SET
 SET
@@ -17,349 +20,649 @@ SET
 SET
 CREATE EXTENSION
 COMMENT
-CREATE TYPE
+psql:backupSQL.sql:50: ERROR:  type "aircraft_status" already exists
 ALTER TYPE
-CREATE TYPE
+psql:backupSQL.sql:66: ERROR:  type "aircraft_type" already exists
 ALTER TYPE
-CREATE TYPE
+psql:backupSQL.sql:80: ERROR:  type "crew_type" already exists
 ALTER TYPE
-CREATE TYPE
+psql:backupSQL.sql:99: ERROR:  type "flight_status" already exists
 ALTER TYPE
-CREATE TYPE
+psql:backupSQL.sql:113: ERROR:  type "gate_status" already exists
 ALTER TYPE
-CREATE TYPE
+psql:backupSQL.sql:135: ERROR:  type "weather_condition" already exists
 ALTER TYPE
 SET
 SET
-CREATE TABLE
+psql:backupSQL.sql:153: ERROR:  relation "aircraft" already exists
 ALTER TABLE
-CREATE TABLE
+psql:backupSQL.sql:167: ERROR:  relation "airport" already exists
 ALTER TABLE
-CREATE TABLE
+psql:backupSQL.sql:182: ERROR:  relation "crew" already exists
 ALTER TABLE
-CREATE TABLE
+psql:backupSQL.sql:202: ERROR:  relation "flight" already exists
 ALTER TABLE
-CREATE TABLE
+psql:backupSQL.sql:219: ERROR:  relation "gate" already exists
 ALTER TABLE
-CREATE TABLE
+psql:backupSQL.sql:234: ERROR:  relation "passenger" already exists
 ALTER TABLE
-CREATE TABLE
+psql:backupSQL.sql:249: ERROR:  relation "weather" already exists
 ALTER TABLE
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-INSERT 0 1000
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-Restore duration: 236 seconds 
+psql:backupSQL.sql:1260: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(41425) already exists.
+psql:backupSQL.sql:2261: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(83683) already exists.
+psql:backupSQL.sql:3262: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(45312) already exists.
+psql:backupSQL.sql:4263: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(46982) already exists.
+psql:backupSQL.sql:5264: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(37190) already exists.
+psql:backupSQL.sql:6265: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(26985) already exists.
+psql:backupSQL.sql:7266: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(80188) already exists.
+psql:backupSQL.sql:8267: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(97424) already exists.
+psql:backupSQL.sql:9268: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(25517) already exists.
+psql:backupSQL.sql:10269: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(29919) already exists.
+psql:backupSQL.sql:11270: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(75908) already exists.
+psql:backupSQL.sql:12271: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(86299) already exists.
+psql:backupSQL.sql:13272: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(99633) already exists.
+psql:backupSQL.sql:14273: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(67200) already exists.
+psql:backupSQL.sql:15274: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(80482) already exists.
+psql:backupSQL.sql:16275: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(14105) already exists.
+psql:backupSQL.sql:17276: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(15167) already exists.
+psql:backupSQL.sql:18277: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(28519) already exists.
+psql:backupSQL.sql:19278: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(75677) already exists.
+psql:backupSQL.sql:20279: ERROR:  duplicate key value violates unique constraint "aircraft_pkey"
+DETAIL:  Key (aircraft_id)=(33575) already exists.
+psql:backupSQL.sql:21288: ERROR:  duplicate key value violates unique constraint "airport_pkey"
+DETAIL:  Key (airport_id)=(5612) already exists.
+psql:backupSQL.sql:22289: ERROR:  duplicate key value violates unique constraint "airport_pkey"
+DETAIL:  Key (airport_id)=(5526) already exists.
+psql:backupSQL.sql:23290: ERROR:  duplicate key value violates unique constraint "airport_pkey"
+DETAIL:  Key (airport_id)=(4960) already exists.
+psql:backupSQL.sql:24291: ERROR:  duplicate key value violates unique constraint "airport_pkey"
+DETAIL:  Key (airport_id)=(2415) already exists.
+psql:backupSQL.sql:25292: ERROR:  duplicate key value violates unique constraint "airport_pkey"
+DETAIL:  Key (airport_id)=(8095) already exists.
+psql:backupSQL.sql:26301: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(91566) already exists.
+psql:backupSQL.sql:27302: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(31705) already exists.
+psql:backupSQL.sql:28303: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(71667) already exists.
+psql:backupSQL.sql:29304: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(69653) already exists.
+psql:backupSQL.sql:30305: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(78117) already exists.
+psql:backupSQL.sql:31306: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(96418) already exists.
+psql:backupSQL.sql:32307: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(83962) already exists.
+psql:backupSQL.sql:33308: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(81166) already exists.
+psql:backupSQL.sql:34309: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(94281) already exists.
+psql:backupSQL.sql:35310: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(60387) already exists.
+psql:backupSQL.sql:36311: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(35679) already exists.
+psql:backupSQL.sql:37312: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(64397) already exists.
+psql:backupSQL.sql:38313: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(40270) already exists.
+psql:backupSQL.sql:39314: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(45324) already exists.
+psql:backupSQL.sql:40315: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(58304) already exists.
+psql:backupSQL.sql:41316: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(50903) already exists.
+psql:backupSQL.sql:42317: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(72427) already exists.
+psql:backupSQL.sql:43318: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(37937) already exists.
+psql:backupSQL.sql:44319: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(92255) already exists.
+psql:backupSQL.sql:45320: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(87833) already exists.
+psql:backupSQL.sql:46321: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(81296) already exists.
+psql:backupSQL.sql:47322: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(40426) already exists.
+psql:backupSQL.sql:48323: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(81963) already exists.
+psql:backupSQL.sql:49324: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(66598) already exists.
+psql:backupSQL.sql:50325: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(43035) already exists.
+psql:backupSQL.sql:51326: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(54258) already exists.
+psql:backupSQL.sql:52327: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(37067) already exists.
+psql:backupSQL.sql:53328: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(75086) already exists.
+psql:backupSQL.sql:54329: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(97127) already exists.
+psql:backupSQL.sql:55330: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(31434) already exists.
+psql:backupSQL.sql:56331: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(84178) already exists.
+psql:backupSQL.sql:57332: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(81354) already exists.
+psql:backupSQL.sql:58333: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(64242) already exists.
+psql:backupSQL.sql:59334: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(89546) already exists.
+psql:backupSQL.sql:60335: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(63803) already exists.
+psql:backupSQL.sql:61336: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(17235) already exists.
+psql:backupSQL.sql:62337: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(49941) already exists.
+psql:backupSQL.sql:63338: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(64408) already exists.
+psql:backupSQL.sql:64339: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(33832) already exists.
+psql:backupSQL.sql:65340: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(46328) already exists.
+psql:backupSQL.sql:66341: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(54404) already exists.
+psql:backupSQL.sql:67342: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(94994) already exists.
+psql:backupSQL.sql:68343: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(87049) already exists.
+psql:backupSQL.sql:69344: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(90059) already exists.
+psql:backupSQL.sql:70345: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(60772) already exists.
+psql:backupSQL.sql:71346: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(60309) already exists.
+psql:backupSQL.sql:72347: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(68135) already exists.
+psql:backupSQL.sql:73348: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(54705) already exists.
+psql:backupSQL.sql:74349: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(51147) already exists.
+psql:backupSQL.sql:75350: ERROR:  duplicate key value violates unique constraint "crew_pkey"
+DETAIL:  Key (crew_id)=(36787) already exists.
+psql:backupSQL.sql:76359: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(65079) already exists.
+psql:backupSQL.sql:77360: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(35618) already exists.
+psql:backupSQL.sql:78361: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(19543) already exists.
+psql:backupSQL.sql:79362: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(55773) already exists.
+psql:backupSQL.sql:80363: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(80572) already exists.
+psql:backupSQL.sql:81364: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(96946) already exists.
+psql:backupSQL.sql:82365: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(85667) already exists.
+psql:backupSQL.sql:83366: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(94319) already exists.
+psql:backupSQL.sql:84367: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(92639) already exists.
+psql:backupSQL.sql:85368: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(34472) already exists.
+psql:backupSQL.sql:86369: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(39002) already exists.
+psql:backupSQL.sql:87370: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(70515) already exists.
+psql:backupSQL.sql:88371: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(43283) already exists.
+psql:backupSQL.sql:89372: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(81614) already exists.
+psql:backupSQL.sql:90373: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(73193) already exists.
+psql:backupSQL.sql:91374: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(96649) already exists.
+psql:backupSQL.sql:92375: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(85683) already exists.
+psql:backupSQL.sql:93376: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(90056) already exists.
+psql:backupSQL.sql:94377: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(77819) already exists.
+psql:backupSQL.sql:95378: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(64402) already exists.
+psql:backupSQL.sql:96379: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(80401) already exists.
+psql:backupSQL.sql:97380: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(73169) already exists.
+psql:backupSQL.sql:98381: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(78011) already exists.
+psql:backupSQL.sql:99382: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(34365) already exists.
+psql:backupSQL.sql:100383: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(29084) already exists.
+psql:backupSQL.sql:101384: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(55097) already exists.
+psql:backupSQL.sql:102385: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(62481) already exists.
+psql:backupSQL.sql:103386: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(54877) already exists.
+psql:backupSQL.sql:104387: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(72214) already exists.
+psql:backupSQL.sql:105388: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(25164) already exists.
+psql:backupSQL.sql:106389: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(10185) already exists.
+psql:backupSQL.sql:107390: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(65371) already exists.
+psql:backupSQL.sql:108391: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(66046) already exists.
+psql:backupSQL.sql:109392: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(14995) already exists.
+psql:backupSQL.sql:110393: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(99823) already exists.
+psql:backupSQL.sql:111394: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(70722) already exists.
+psql:backupSQL.sql:112395: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(77441) already exists.
+psql:backupSQL.sql:113396: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(95457) already exists.
+psql:backupSQL.sql:114397: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(48251) already exists.
+psql:backupSQL.sql:115398: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(49985) already exists.
+psql:backupSQL.sql:116399: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(48362) already exists.
+psql:backupSQL.sql:117400: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(65633) already exists.
+psql:backupSQL.sql:118401: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(80656) already exists.
+psql:backupSQL.sql:119402: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(59427) already exists.
+psql:backupSQL.sql:120403: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(99044) already exists.
+psql:backupSQL.sql:121404: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(57852) already exists.
+psql:backupSQL.sql:122405: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(98884) already exists.
+psql:backupSQL.sql:123406: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(76700) already exists.
+psql:backupSQL.sql:124407: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(86504) already exists.
+psql:backupSQL.sql:125408: ERROR:  duplicate key value violates unique constraint "flight_pkey"
+DETAIL:  Key (flight_number)=(28861) already exists.
+psql:backupSQL.sql:126417: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(32947) already exists.
+psql:backupSQL.sql:127418: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(37043) already exists.
+psql:backupSQL.sql:128419: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(64896) already exists.
+psql:backupSQL.sql:129420: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(93182) already exists.
+psql:backupSQL.sql:130421: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(42717) already exists.
+psql:backupSQL.sql:131422: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(72912) already exists.
+psql:backupSQL.sql:132423: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(69132) already exists.
+psql:backupSQL.sql:133424: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(91569) already exists.
+psql:backupSQL.sql:134425: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(38522) already exists.
+psql:backupSQL.sql:135426: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(36380) already exists.
+psql:backupSQL.sql:136427: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(37414) already exists.
+psql:backupSQL.sql:137428: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(67287) already exists.
+psql:backupSQL.sql:138429: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(12652) already exists.
+psql:backupSQL.sql:139430: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(23087) already exists.
+psql:backupSQL.sql:140431: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(48808) already exists.
+psql:backupSQL.sql:141432: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(79803) already exists.
+psql:backupSQL.sql:142433: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(11944) already exists.
+psql:backupSQL.sql:143434: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(67838) already exists.
+psql:backupSQL.sql:144435: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(54497) already exists.
+psql:backupSQL.sql:145436: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(95834) already exists.
+psql:backupSQL.sql:146437: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(59760) already exists.
+psql:backupSQL.sql:147438: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(60103) already exists.
+psql:backupSQL.sql:148439: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(91615) already exists.
+psql:backupSQL.sql:149440: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(13488) already exists.
+psql:backupSQL.sql:150441: ERROR:  duplicate key value violates unique constraint "gate_pkey"
+DETAIL:  Key (gate_id)=(57503) already exists.
+psql:backupSQL.sql:151450: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(516687) already exists.
+psql:backupSQL.sql:152451: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(549867) already exists.
+psql:backupSQL.sql:153452: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(781994) already exists.
+psql:backupSQL.sql:154453: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(876621) already exists.
+psql:backupSQL.sql:155454: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(570101) already exists.
+psql:backupSQL.sql:156455: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(918089) already exists.
+psql:backupSQL.sql:157456: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(827953) already exists.
+psql:backupSQL.sql:158457: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(323189) already exists.
+psql:backupSQL.sql:159458: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(735600) already exists.
+psql:backupSQL.sql:160459: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(725063) already exists.
+psql:backupSQL.sql:161460: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(397264) already exists.
+psql:backupSQL.sql:162461: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(276623) already exists.
+psql:backupSQL.sql:163462: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(724462) already exists.
+psql:backupSQL.sql:164463: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(846901) already exists.
+psql:backupSQL.sql:165464: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(515433) already exists.
+psql:backupSQL.sql:166465: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(557539) already exists.
+psql:backupSQL.sql:167466: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(558075) already exists.
+psql:backupSQL.sql:168467: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(972234) already exists.
+psql:backupSQL.sql:169468: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(866045) already exists.
+psql:backupSQL.sql:170469: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(916235) already exists.
+psql:backupSQL.sql:171470: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(565250) already exists.
+psql:backupSQL.sql:172471: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(423624) already exists.
+psql:backupSQL.sql:173472: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(846791) already exists.
+psql:backupSQL.sql:174473: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(316490) already exists.
+psql:backupSQL.sql:175474: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(504997) already exists.
+psql:backupSQL.sql:176475: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(336301) already exists.
+psql:backupSQL.sql:177476: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(882293) already exists.
+psql:backupSQL.sql:178477: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(347828) already exists.
+psql:backupSQL.sql:179478: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(550816) already exists.
+psql:backupSQL.sql:180479: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(317054) already exists.
+psql:backupSQL.sql:181480: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(903825) already exists.
+psql:backupSQL.sql:182481: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(681536) already exists.
+psql:backupSQL.sql:183482: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(565641) already exists.
+psql:backupSQL.sql:184483: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(588314) already exists.
+psql:backupSQL.sql:185484: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(373768) already exists.
+psql:backupSQL.sql:186485: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(393952) already exists.
+psql:backupSQL.sql:187486: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(118848) already exists.
+psql:backupSQL.sql:188487: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(527345) already exists.
+psql:backupSQL.sql:189488: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(418764) already exists.
+psql:backupSQL.sql:190489: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(964058) already exists.
+psql:backupSQL.sql:191490: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(173364) already exists.
+psql:backupSQL.sql:192491: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(906603) already exists.
+psql:backupSQL.sql:193492: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(334383) already exists.
+psql:backupSQL.sql:194493: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(936995) already exists.
+psql:backupSQL.sql:195494: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(817099) already exists.
+psql:backupSQL.sql:196495: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(611893) already exists.
+psql:backupSQL.sql:197496: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(722171) already exists.
+psql:backupSQL.sql:198497: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(204469) already exists.
+psql:backupSQL.sql:199498: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(198814) already exists.
+psql:backupSQL.sql:200499: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(540222) already exists.
+psql:backupSQL.sql:201500: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(653596) already exists.
+psql:backupSQL.sql:202501: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(516857) already exists.
+psql:backupSQL.sql:203502: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(595907) already exists.
+psql:backupSQL.sql:204503: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(768641) already exists.
+psql:backupSQL.sql:205504: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(122333) already exists.
+psql:backupSQL.sql:206505: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(603757) already exists.
+psql:backupSQL.sql:207506: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(702054) already exists.
+psql:backupSQL.sql:208507: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(963495) already exists.
+psql:backupSQL.sql:209508: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(703872) already exists.
+psql:backupSQL.sql:210509: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(615759) already exists.
+psql:backupSQL.sql:211510: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(181698) already exists.
+psql:backupSQL.sql:212511: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(992842) already exists.
+psql:backupSQL.sql:213512: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(376059) already exists.
+psql:backupSQL.sql:214513: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(907900) already exists.
+psql:backupSQL.sql:215514: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(472874) already exists.
+psql:backupSQL.sql:216515: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(512378) already exists.
+psql:backupSQL.sql:217516: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(803197) already exists.
+psql:backupSQL.sql:218517: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(548588) already exists.
+psql:backupSQL.sql:219518: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(221414) already exists.
+psql:backupSQL.sql:220519: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(617164) already exists.
+psql:backupSQL.sql:221520: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(416088) already exists.
+psql:backupSQL.sql:222521: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(468688) already exists.
+psql:backupSQL.sql:223522: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(833601) already exists.
+psql:backupSQL.sql:224523: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(183676) already exists.
+psql:backupSQL.sql:225524: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(155584) already exists.
+psql:backupSQL.sql:226525: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(635509) already exists.
+psql:backupSQL.sql:227526: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(320790) already exists.
+psql:backupSQL.sql:228527: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(782156) already exists.
+psql:backupSQL.sql:229528: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(719089) already exists.
+psql:backupSQL.sql:230529: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(600199) already exists.
+psql:backupSQL.sql:231530: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(939577) already exists.
+psql:backupSQL.sql:232531: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(666435) already exists.
+psql:backupSQL.sql:233532: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(947499) already exists.
+psql:backupSQL.sql:234533: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(985593) already exists.
+psql:backupSQL.sql:235534: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(175282) already exists.
+psql:backupSQL.sql:236535: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(797991) already exists.
+psql:backupSQL.sql:237536: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(966311) already exists.
+psql:backupSQL.sql:238537: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(291694) already exists.
+psql:backupSQL.sql:239538: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(978494) already exists.
+psql:backupSQL.sql:240539: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(247097) already exists.
+psql:backupSQL.sql:241540: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(598359) already exists.
+psql:backupSQL.sql:242541: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(353738) already exists.
+psql:backupSQL.sql:243542: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(608460) already exists.
+psql:backupSQL.sql:244543: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(260011) already exists.
+psql:backupSQL.sql:245544: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(791195) already exists.
+psql:backupSQL.sql:246545: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(570375) already exists.
+psql:backupSQL.sql:247546: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(474800) already exists.
+psql:backupSQL.sql:248547: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(593889) already exists.
+psql:backupSQL.sql:249548: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(130072) already exists.
+psql:backupSQL.sql:250549: ERROR:  duplicate key value violates unique constraint "passenger_pkey"
+DETAIL:  Key (passenger_id)=(221497) already exists.
+psql:backupSQL.sql:251558: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(7407) is not present in table "airport".
+psql:backupSQL.sql:252559: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8159) is not present in table "airport".
+psql:backupSQL.sql:253560: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8443) is not present in table "airport".
+psql:backupSQL.sql:254561: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(2456) is not present in table "airport".
+psql:backupSQL.sql:255562: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8791) is not present in table "airport".
+psql:backupSQL.sql:256563: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(9515) is not present in table "airport".
+psql:backupSQL.sql:257564: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(9657) is not present in table "airport".
+psql:backupSQL.sql:258565: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(7608) is not present in table "airport".
+psql:backupSQL.sql:259566: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(2830) is not present in table "airport".
+psql:backupSQL.sql:260567: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(6710) is not present in table "airport".
+psql:backupSQL.sql:261568: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(1645) is not present in table "airport".
+psql:backupSQL.sql:262569: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(5644) is not present in table "airport".
+psql:backupSQL.sql:263570: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(4624) is not present in table "airport".
+psql:backupSQL.sql:264571: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(1502) is not present in table "airport".
+psql:backupSQL.sql:265572: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8712) is not present in table "airport".
+psql:backupSQL.sql:266573: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(7267) is not present in table "airport".
+psql:backupSQL.sql:267574: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(2793) is not present in table "airport".
+psql:backupSQL.sql:268575: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(2643) is not present in table "airport".
+psql:backupSQL.sql:269576: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(3782) is not present in table "airport".
+psql:backupSQL.sql:270577: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(4347) is not present in table "airport".
+psql:backupSQL.sql:271578: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(9075) is not present in table "airport".
+psql:backupSQL.sql:272579: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8017) is not present in table "airport".
+psql:backupSQL.sql:273580: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(3520) is not present in table "airport".
+psql:backupSQL.sql:274581: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8506) is not present in table "airport".
+psql:backupSQL.sql:275582: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(6122) is not present in table "airport".
+psql:backupSQL.sql:276583: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(2232) is not present in table "airport".
+psql:backupSQL.sql:277584: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(5463) is not present in table "airport".
+psql:backupSQL.sql:278585: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(1296) is not present in table "airport".
+psql:backupSQL.sql:279586: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8887) is not present in table "airport".
+psql:backupSQL.sql:280587: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(5464) is not present in table "airport".
+psql:backupSQL.sql:281588: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(9295) is not present in table "airport".
+psql:backupSQL.sql:282589: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(5440) is not present in table "airport".
+psql:backupSQL.sql:283590: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(9128) is not present in table "airport".
+psql:backupSQL.sql:284591: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(5142) is not present in table "airport".
+psql:backupSQL.sql:285592: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(2713) is not present in table "airport".
+psql:backupSQL.sql:286593: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(7106) is not present in table "airport".
+psql:backupSQL.sql:287594: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(6035) is not present in table "airport".
+psql:backupSQL.sql:288595: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(4217) is not present in table "airport".
+psql:backupSQL.sql:289596: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(6438) is not present in table "airport".
+psql:backupSQL.sql:290597: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(8586) is not present in table "airport".
+psql:backupSQL.sql:291598: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(6810) is not present in table "airport".
+psql:backupSQL.sql:292599: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(5935) is not present in table "airport".
+psql:backupSQL.sql:293600: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(3261) is not present in table "airport".
+psql:backupSQL.sql:294601: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(6103) is not present in table "airport".
+psql:backupSQL.sql:295602: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(6707) is not present in table "airport".
+psql:backupSQL.sql:296603: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(7106) is not present in table "airport".
+psql:backupSQL.sql:297604: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(4564) is not present in table "airport".
+psql:backupSQL.sql:298605: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(2032) is not present in table "airport".
+psql:backupSQL.sql:299606: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(7491) is not present in table "airport".
+psql:backupSQL.sql:300607: ERROR:  insert or update on table "weather" violates foreign key constraint "weather_airport_id_fkey"
+DETAIL:  Key (airport_id)=(5286) is not present in table "airport".
+psql:backupSQL.sql:300616: ERROR:  multiple primary keys for table "aircraft" are not allowed
+psql:backupSQL.sql:300625: ERROR:  multiple primary keys for table "airport" are not allowed
+psql:backupSQL.sql:300634: ERROR:  multiple primary keys for table "crew" are not allowed
+psql:backupSQL.sql:300643: ERROR:  multiple primary keys for table "flight" are not allowed
+psql:backupSQL.sql:300652: ERROR:  multiple primary keys for table "gate" are not allowed
+psql:backupSQL.sql:300661: ERROR:  multiple primary keys for table "passenger" are not allowed
+psql:backupSQL.sql:300670: ERROR:  multiple primary keys for table "weather" are not allowed
+psql:backupSQL.sql:300679: ERROR:  constraint "crew_flight_number_fkey" for relation "crew" already exists
+psql:backupSQL.sql:300688: ERROR:  constraint "flight_aircraft_id_fkey" for relation "flight" already exists
+psql:backupSQL.sql:300697: ERROR:  constraint "flight_arrival_airport_id_fkey" for relation "flight" already exists
+psql:backupSQL.sql:300706: ERROR:  constraint "flight_arrival_gate_id_fkey" for relation "flight" already exists
+psql:backupSQL.sql:300715: ERROR:  constraint "flight_departure_airport_id_fkey" for relation "flight" already exists
+psql:backupSQL.sql:300724: ERROR:  constraint "flight_departure_gate_id_fkey" for relation "flight" already exists
+psql:backupSQL.sql:300733: ERROR:  constraint "gate_airport_id_fkey" for relation "gate" already exists
+psql:backupSQL.sql:300742: ERROR:  constraint "passenger_flight_number_fkey" for relation "passenger" already exists
+psql:backupSQL.sql:300751: ERROR:  constraint "weather_airport_id_fkey" for relation "weather" already exists
+Restore duration: 568 seconds 
 Restoration complete. 

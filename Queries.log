@@ -1,5 +1,4 @@
 Query 1: Get all flights with gate, airport and weather information
-
 "Sort  (cost=4493597.70..4493722.70 rows=50000 width=88) (actual time=159343.565..159354.847 rows=50444 loops=1)"
 "  Sort Key: f.flight_number"
 "  Sort Method: external merge  Disk: 5088kB"
@@ -47,8 +46,8 @@ Query 1: Get all flights with gate, airport and weather information
 "Planning Time: 25.804 ms"
 "Execution Time: 159366.594 ms"
 
-Query 2: Get all airports and the total number of flights for each airport
 
+Query 2: Get all airports and the total number of flights for each airport
 "Sort  (cost=3166.79..3179.29 rows=5000 width=53) (actual time=40.831..41.130 rows=5000 loops=1)"
 "  Sort Key: a.airport_id"
 "  Sort Method: quicksort  Memory: 453kB"
@@ -74,8 +73,8 @@ Query 2: Get all airports and the total number of flights for each airport
 "Planning Time: 4.281 ms"
 "Execution Time: 42.486 ms"
 
-Query 3: Get all flights that do not have a pilot
 
+Query 3: Get all flights that do not have a pilot
 "Sort  (cost=5142.52..5226.09 rows=33428 width=36) (actual time=101.434..106.095 rows=35801 loops=1)"
 "  Sort Key: f.flight_number"
 "  Sort Method: quicksort  Memory: 3355kB"
@@ -90,8 +89,8 @@ Query 3: Get all flights that do not have a pilot
 "Planning Time: 8.006 ms"
 "Execution Time: 108.023 ms"
 
-Query 4: Get all flights with matching weather conditions at the departure and arrival airports
 
+Query 4: Get all flights with matching weather conditions at the departure and arrival airports
 "Sort  (cost=2258468.80..2258468.81 rows=1 width=74) (actual time=151725.224..151725.997 rows=4553 loops=1)"
 "  Sort Key: f.flight_number"
 "  Sort Method: quicksort  Memory: 650kB"
@@ -129,11 +128,22 @@ Query 4: Get all flights with matching weather conditions at the departure and a
 "Planning Time: 3.395 ms"
 "Execution Time: 151728.125 ms"
 
-Query 5: 
+
+Query 5: Update gate availability if flight left the gate 
+"Update on gate g  (cost=576.61..1293.45 rows=0 width=0) (actual time=108.463..108.468 rows=0 loops=1)"
+"  ->  Hash Join  (cost=576.61..1293.45 rows=2758 width=16) (actual time=23.800..65.860 rows=2758 loops=1)"
+"        Hash Cond: (f.departure_gate_id = g.gate_id)"
+"        ->  Seq Scan on flight f  (cost=0.00..709.60 rows=2758 width=10) (actual time=1.372..39.807 rows=2758 loops=1)"
+"              Filter: (flight_status = 'Departed'::flight_status)"
+"              Rows Removed by Filter: 19930"
+"        ->  Hash  (cost=345.16..345.16 rows=18516 width=10) (actual time=21.806..21.809 rows=18516 loops=1)"
+"              Buckets: 32768  Batches: 1  Memory Usage: 1052kB"
+"              ->  Seq Scan on gate g  (cost=0.00..345.16 rows=18516 width=10) (actual time=0.139..12.710 rows=18516 loops=1)"
+"Planning Time: 11.906 ms"
+"Execution Time: 109.963 ms"
 
 
 Query 6: Update all flights whose aircraft status was Boarding to flight status Gate Closed
-
 "Update on flight f  (cost=401.51..1459.91 rows=0 width=0) (actual time=145.571..145.572 rows=0 loops=1)"
 "  ->  Hash Join  (cost=401.51..1459.91 rows=1062 width=16) (actual time=15.229..24.146 rows=1040 loops=1)"
 "        Hash Cond: (f.aircraft_id = a.aircraft_id)"
@@ -147,5 +157,3 @@ Query 6: Update all flights whose aircraft status was Boarding to flight status 
 "                    Rows Removed by Filter: 16599"
 "Planning Time: 7.628 ms"
 "Execution Time: 146.417 ms"
-
-Query 7: Delete all flights whose aircraft status is Under Maintenance

@@ -71,16 +71,16 @@ We used batch files to run the pg_dump and pg_restore commands
 # Select Queries:
 1. Get all flights with gate, airport and weather information
 2. Get all airports and the total number of flights for each airport
-3. Get all flights that do not have a pilot
-4. Get all flights with matching weather conditions at the departure and arrival airports 
+3. Get flights that do not have a pilot
+4. Get flights with matching weather conditions at the departure and arrival airports 
 
 # Update Queries:
-1. 
+1. Update gates to available if flight is departed from departure gate
 2. Update all flights whose aircraft status was Boarding to flight status Gate Closed
 
 # Delete Queries:
 1. Delete flights whose aircraft status is Under Maintenance
-2. Delete 
+2. Delete the oldest weather for each airport
 
 ### Parameterized Queries:
 1. Update all flights whose destination was ... to ...
