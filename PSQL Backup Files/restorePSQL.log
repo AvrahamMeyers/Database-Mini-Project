@@ -1,0 +1,4 @@
+Dropping the existing database... 
+dropdb: error: database removal failed: ERROR:  database "postgres" is being accessed by other users
+DETAIL:  There are 3 other sessions using the database.
+Error dropping the database. Check the log file for details. 
