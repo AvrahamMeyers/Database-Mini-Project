@@ -1,0 +1,61 @@
+Constraint 1:
+
+ERROR:  Failing row contains (1001, 2024-06-17, 2024-06-17, On time, 10001, 10001, 10001, 10001, 10001).new row for relation "flight" violates check constraint "chk_different_airports" 
+
+ERROR:  new row for relation "flight" violates check constraint "chk_different_airports"
+SQL state: 23514
+Detail: Failing row contains (1001, 2024-06-17, 2024-06-17, On time, 10001, 10001, 10001, 10001, 10001).
+
+
+ERROR:  Failing row contains (10001, 2020-09-08, 2020-09-09, Cancelled, 12971, 25298, 1199, 12162, 1199).new row for relation "flight" violates check constraint "chk_different_airports" 
+
+ERROR:  new row for relation "flight" violates check constraint "chk_different_airports"
+SQL state: 23514
+Detail: Failing row contains (10001, 2020-09-08, 2020-09-09, Cancelled, 12971, 25298, 1199, 12162, 1199).
+
+
+
+Constraint 2:
+
+ERROR:  Failing row contains (1003, 2024-06-17, 2024-06-17, On time, 10001, 10001, 10001, 10002, 10002).new row for relation "flight" violates check constraint "chk_different_times" 
+
+ERROR:  new row for relation "flight" violates check constraint "chk_different_times"
+SQL state: 23514
+Detail: Failing row contains (1003, 2024-06-17, 2024-06-17, On time, 10001, 10001, 10001, 10002, 10002).
+
+
+ERROR:  Failing row contains (1003, 2024-06-17, 2024-06-17, On time, 10001, 10000, 1000, 10007, 1004).new row for relation "flight" violates check constraint "chk_different_times" 
+
+ERROR:  new row for relation "flight" violates check constraint "chk_different_times"
+SQL state: 23514
+Detail: Failing row contains (1003, 2024-06-17, 2024-06-17, On time, 10001, 10000, 1000, 10007, 1004).
+
+
+
+Constraint 3:
+
+ERROR:  Key (ticket_number, flight_number)=(ABC123, 1004) already exists.duplicate key value violates unique constraint "unique_ticket_number" 
+
+ERROR:  duplicate key value violates unique constraint "unique_ticket_number"
+SQL state: 23505
+Detail: Key (ticket_number, flight_number)=(ABC123, 1004) already exists.
+
+
+ERROR:  Key (ticket_number, flight_number)=(ABC123, 10004) already exists.duplicate key value violates unique constraint "unique_ticket_number" 
+
+ERROR:  duplicate key value violates unique constraint "unique_ticket_number"
+SQL state: 23505
+Detail: Key (ticket_number, flight_number)=(ABC123, 10004) already exists.
+
+
+
+Constraint 4:
+
+ERROR:  Failing row contains (1005, 2024-06-17, 2024-06-17, On time, 1, 1, 1, 2, 2).new row for relation "flight" violates check constraint "chk_departure_before_arrival" 
+
+ERROR:  new row for relation "flight" violates check constraint "chk_departure_before_arrival"
+SQL state: 23514
+Detail: Failing row contains (1005, 2024-06-17, 2024-06-17, On time, 1, 1, 1, 2, 2).
+
+
+
