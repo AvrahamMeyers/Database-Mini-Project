@@ -81,3 +81,22 @@ We used batch files to run the pg_dump and pg_restore commands
 # Delete Queries:
 1. Delete all flights whose aircraft status is Under Maintenance
 2. Delete all airports that have less than 5 gates
+
+### Parameterized Queries:
+1. Update all flights whose destination was ... to ...
+2. 
+3.
+4.
+
+
+
+### Indexes
+
+
+
+
+
+### Constraints
+1. No flight can have the same departure and arrival airport
+2. Every flight must have a pilot
+3. 
