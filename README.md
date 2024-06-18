@@ -100,3 +100,77 @@ We used batch files to run the pg_dump and pg_restore commands
 1. No flight can have the same departure and arrival airport
 2. Every flight must have a pilot
 3. 
+
+-- Paramaterization 1
+-- Get the specific flight that a crew member is assigned to
+    PREPARE Flight_Assignment_For_Crew (text) AS
+    SELECT f.Flight_Number,
+           f.Departure_Time,
+           f.Arrival_Time,
+           f.Flight_Status,
+           a.Aircraft_Type,
+           a.Current_Status,
+           d_airport.Name AS Departure_Airport,
+           d_gate.Gate_Number AS Departure_Gate,
+           a_airport.Name AS Arrival_Airport,
+           a_gate.Gate_Number AS Arrival_Gate
+    FROM Crew c
+    JOIN Flight f ON c.Flight_Number = f.Flight_Number
+    JOIN Aircraft a ON f.Aircraft_ID = a.Aircraft_ID
+    JOIN Gate d_gate ON f.Departure_Gate_ID = d_gate.Gate_ID
+    JOIN Airport d_airport ON f.Departure_Airport_ID = d_airport.Airport_ID
+    JOIN Gate a_gate ON f.Arrival_Gate_ID = a_gate.Gate_ID
+    JOIN Airport a_airport ON f.Arrival_Airport_ID = a_airport.Airport_ID
+    WHERE c.Member_Name = $1;
+
+    EXECUTE Flight_Assignment_For_Crew('Ashley Wheeler');
+
+-- Paramaterization 2
+-- Get the destination airport of a passenger using their ticket number
+    PREPARE Destination_Airport_For_Passenger (text) AS
+    SELECT a_airport.Name AS Destination_Airport
+    FROM Passenger p
+    JOIN Flight f ON p.Flight_Number = f.Flight_Number
+    JOIN Airport a_airport ON f.Arrival_Airport_ID = a_airport.Airport_ID
+    WHERE p.Ticket_Number = $1;
+
+    EXECUTE Destination_Airport_For_Passenger('ZOMYM4U7S6');
+
+-- Paramaterization 3
+-- Update the weather conditions at a specific airport
+    PREPARE Update_Weather_At_Airport (integer, weather_condition, date, integer) AS
+    UPDATE Weather
+    SET Conditions = $2,  
+        Update_Time = $3  
+    WHERE Weather_ID = $1  
+      AND Airport_ID = $4;
+
+    EXECUTE Update_Weather_At_Airport(10004, 'Foggy', '2024-06-18', 2021);
+
+-- Paramaterization 4
+-- Update a passenger's ticket number and flight number when they buy a new ticket
+    PREPARE update_passenger_ticket (
+    int,      
+    varchar,   
+    varchar,   
+    varchar, 
+    int,       
+    int      
+    ) AS
+    UPDATE Passenger
+    SET Ticket_Number = $4,       -- New Ticket_Number
+        Flight_Number = $6       -- New Flight_Number
+    WHERE Passenger_ID = $1       -- Passenger_ID
+    AND Member_Name = $2           -- Member_Name
+    AND Ticket_Number = $3        -- Old Ticket_Number
+    AND Flight_Number = $5;    
+
+    EXECUTE update_passenger_ticket(100022, 'Stephanie Garcia', 'ZOMYM4U7S6', 'TOMYM4U7S6', 84206, 94206);
+  
+
+
+
+
+
+
+
