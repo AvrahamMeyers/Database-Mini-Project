@@ -75,7 +75,7 @@ We used batch files to run the pg_dump and pg_restore commands
 4. Get flights with matching weather conditions at the departure and arrival airports 
 
 # Update Queries:
-1. 
+1. Update gates to available if flight is departed from departure gate
 2. Update all flights whose aircraft status was Boarding to flight status Gate Closed
 
 # Delete Queries:
