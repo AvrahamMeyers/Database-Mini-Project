@@ -11,7 +11,7 @@ As part of the class project of an airline management system, we are tasked with
 - Weather
 - Passengers
 
-Our system for scheduling is modeled around the **Flight** entity, as we account for all flight information to assign flights the proper aircraft, crew members, and the gates and airports for departure and arrival. Additionally, we account for the weather conditions at the respective airports.
+Our system for scheduling is modeled around the **Flight** entity, as we account for all flight information to assign flights the proper aircraft, crew members, and the gates and airports for departure and arrival, and the relevant passengers for the flight. Additionally, we account for the weather conditions at the respective airports.
 
 
 ### Entity Relationships
@@ -24,6 +24,9 @@ Our system for scheduling is modeled around the **Flight** entity, as we account
 
 - **Gate**:
   - Many-to-One relationship with **Airport**: There are multiple gates that belong to a specific airport. Each gate is used by specific flights for departure and arrival as well as at the airports.
+
+- **Passenger**:
+  - One-to-Many relationship with **Flight**: Each passenger has one flight
 
 - **Airport**:
   - Has flights departing and arriving at specific airports. An airport can have multiple departing and arriving flights.
