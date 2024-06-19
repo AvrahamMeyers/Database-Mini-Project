@@ -100,8 +100,8 @@ With indexes: [queries output](IndexedQueries.log)
  - Query Benefitted: Update flights and delete flights based on Aircraft_ID.
 2. Index on Current_Status in the Aircraft table
  - Query Benefitted: Update flights based on Aircraft status and delete flights based on Aircraft status.
-3. Composite Index on Airport_ID in the Gate table
- - Query Benefitted: Delete airports based on the number of gates.
+3. Index on Weather Update Time
+ - Query Benefitted: Deleting the oldest weather for each airport and updating weather conditions
 
 
 ### Constraints
