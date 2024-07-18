@@ -87,4 +87,4 @@ pg_dump: creating FK CONSTRAINT "public.flight flight_departure_gate_id_fkey"
 pg_dump: creating FK CONSTRAINT "public.gate gate_airport_id_fkey"
 pg_dump: creating FK CONSTRAINT "public.passenger passenger_flight_number_fkey"
 pg_dump: creating FK CONSTRAINT "public.weather weather_airport_id_fkey"
-Backup duration: 272 seconds 
+Backup duration:  seconds 

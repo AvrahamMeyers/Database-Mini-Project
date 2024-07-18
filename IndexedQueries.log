@@ -1,92 +1,100 @@
 Query 1:
-"Sort  (cost=4502.79..4559.51 rows=22688 width=88) (actual time=379.889..383.429 rows=22688 loops=1)"
-"  Sort Key: f.flight_number"
-"  Sort Method: quicksort  Memory: 3191kB"
-"  ->  Hash Left Join  (cost=1346.11..2861.35 rows=22688 width=88) (actual time=15.057..355.814 rows=22688 loops=1)"
-"        Hash Cond: ((arr_airport.airport_id = arr_weather.airport_id) AND ((SubPlan 2) = arr_weather.update_time))"
-"        ->  Hash Join  (cost=1346.09..2549.36 rows=22688 width=84) (actual time=15.017..230.638 rows=22688 loops=1)"
-"              Hash Cond: (f.arrival_airport_id = arr_airport.airport_id)"
-"              ->  Hash Left Join  (cost=1249.66..2393.29 rows=22688 width=67) (actual time=13.607..210.251 rows=22688 loops=1)"
-"                    Hash Cond: ((dep_airport.airport_id = dep_weather.airport_id) AND ((SubPlan 1) = dep_weather.update_time))"
-"                    ->  Hash Join  (cost=1249.65..2081.31 rows=22688 width=63) (actual time=13.510..76.959 rows=22688 loops=1)"
-"                          Hash Cond: (f.arrival_gate_id = arr_gate.gate_id)"
-"                          ->  Hash Join  (cost=673.04..1445.13 rows=22688 width=58) (actual time=7.065..52.182 rows=22688 loops=1)"
-"                                Hash Cond: (f.departure_airport_id = dep_airport.airport_id)"
-"                                ->  Hash Join  (cost=576.61..1289.06 rows=22688 width=41) (actual time=5.919..35.633 rows=22688 loops=1)"
-"                                      Hash Cond: (f.departure_gate_id = dep_gate.gate_id)"
-"                                      ->  Seq Scan on flight f  (cost=0.00..652.88 rows=22688 width=36) (actual time=0.037..7.100 rows=22688 loops=1)"
-"                                      ->  Hash  (cost=345.16..345.16 rows=18516 width=9) (actual time=5.714..5.717 rows=18516 loops=1)"
-"                                            Buckets: 32768  Batches: 1  Memory Usage: 1014kB"
-"                                            ->  Seq Scan on gate dep_gate  (cost=0.00..345.16 rows=18516 width=9) (actual time=0.017..2.647 rows=18516 loops=1)"
-"                                ->  Hash  (cost=61.19..61.19 rows=2819 width=21) (actual time=1.061..1.062 rows=2819 loops=1)"
-"                                      Buckets: 4096  Batches: 1  Memory Usage: 183kB"
-"                                      ->  Seq Scan on airport dep_airport  (cost=0.00..61.19 rows=2819 width=21) (actual time=0.024..0.478 rows=2819 loops=1)"
-"                          ->  Hash  (cost=345.16..345.16 rows=18516 width=9) (actual time=6.260..6.261 rows=18516 loops=1)"
-"                                Buckets: 32768  Batches: 1  Memory Usage: 1014kB"
-"                                ->  Seq Scan on gate arr_gate  (cost=0.00..345.16 rows=18516 width=9) (actual time=0.049..2.968 rows=18516 loops=1)"
-"                    ->  Hash  (cost=0.00..0.00 rows=1 width=12) (actual time=0.019..0.020 rows=0 loops=1)"
-"                          Buckets: 1024  Batches: 1  Memory Usage: 8kB"
-"                          ->  Seq Scan on weather dep_weather  (cost=0.00..0.00 rows=1 width=12) (actual time=0.019..0.019 rows=0 loops=1)"
-"                    SubPlan 1"
-"                      ->  Aggregate  (cost=0.00..0.01 rows=1 width=4) (actual time=0.005..0.005 rows=1 loops=22688)"
-"                            ->  Seq Scan on weather  (cost=0.00..0.00 rows=1 width=4) (actual time=0.000..0.000 rows=0 loops=22688)"
-"                                  Filter: (airport_id = dep_airport.airport_id)"
-"              ->  Hash  (cost=61.19..61.19 rows=2819 width=21) (actual time=1.339..1.340 rows=2819 loops=1)"
-"                    Buckets: 4096  Batches: 1  Memory Usage: 183kB"
-"                    ->  Seq Scan on airport arr_airport  (cost=0.00..61.19 rows=2819 width=21) (actual time=0.062..0.642 rows=2819 loops=1)"
-"        ->  Hash  (cost=0.00..0.00 rows=1 width=12) (actual time=0.006..0.006 rows=0 loops=1)"
-"              Buckets: 1024  Batches: 1  Memory Usage: 8kB"
-"              ->  Seq Scan on weather arr_weather  (cost=0.00..0.00 rows=1 width=12) (actual time=0.005..0.005 rows=0 loops=1)"
-"        SubPlan 2"
-"          ->  Aggregate  (cost=0.00..0.01 rows=1 width=4) (actual time=0.004..0.004 rows=1 loops=22688)"
-"                ->  Seq Scan on weather weather_1  (cost=0.00..0.00 rows=1 width=4) (actual time=0.000..0.000 rows=0 loops=22688)"
-"                      Filter: (airport_id = arr_airport.airport_id)"
-"Planning Time: 4.491 ms"
-"Execution Time: 386.243 ms"
+ Sort  (cost=1124461.04..1124565.16 rows=41648 width=88) (actual time=45285.556..45303.456 rows=41921 loops=1)
+   Sort Key: f.flight_number
+   Sort Method: external merge  Disk: 4224kB
+   ->  Hash Join  (cost=560523.20..1119270.40 rows=41648 width=88) (actual time=33213.601..45218.581 rows=41921 loops=1)         Hash Cond: (f.arrival_gate_id = arr_gate.gate_id)
+         ->  Hash Join  (cost=559800.70..1118438.55 rows=41648 width=83) (actual time=33183.926..45160.759 rows=41921 loops=1)
+               Hash Cond: (f.departure_gate_id = dep_gate.gate_id)
+               ->  Hash Join  (cost=559078.20..1117606.70 rows=41648 width=78) (actual time=33173.248..45116.278 rows=41921 loops=1)
+                     Hash Cond: (f.departure_airport_id = dep_airport.airport_id)
+                     ->  Hash Join  (cost=1512.08..559467.93 rows=41648 width=57) (actual time=11346.896..23254.094 rows=41778 loops=1)
+                           Hash Cond: (arr_airport.airport_id = f.arrival_airport_id)
+                           ->  Hash Right Join  (cost=158.00..557503.62 rows=5000 width=29) (actual time=11325.395..23203.707 rows=5019 loops=1)
+                                 Hash Cond: ((arr_weather.airport_id = arr_airport.airport_id) AND (arr_weather.update_time = (SubPlan 4)))
+                                 ->  Seq Scan on weather arr_weather  (cost=0.00..737.84 rows=44984 width=12) (actual time=0.044..7.703 rows=44984 loops=1)
+                                 ->  Hash  (cost=83.00..83.00 rows=5000 width=21) (actual time=11324.268..11324.271 rows=5000 loops=1)
+                                       Buckets: 8192  Batches: 1  Memory Usage: 331kB
+                                       ->  Seq Scan on airport arr_airport  (cost=0.00..83.00 rows=5000 width=21) (actual time=0.087..15.239 rows=5000 loops=1)
+                                       SubPlan 4
+                                         ->  Result  (cost=247.35..247.36 rows=1 width=4) (actual time=2.308..2.309 rows=1 loops=10018)
+                                               InitPlan 3 (returns $3)
+                                                 ->  Limit  (cost=0.29..247.35 rows=1 width=4) (actual time=2.306..2.306 rows=1 loops=10018)
+                                                       ->  Index Scan Backward using idx_weather_update_time on weather weather_1  (cost=0.29..2223.87 rows=9 width=4) (actual time=2.305..2.305 rows=1 loops=10018)
+                                                             Index Cond: (update_time IS NOT NULL)
+                                                             Filter: (airport_id = arr_airport.airport_id)
+                                                             Rows Removed by Filter: 4974
+                           ->  Hash  (cost=833.48..833.48 rows=41648 width=36) (actual time=21.251..21.252 rows=41648 loops=1)
+                                 Buckets: 65536  Batches: 1  Memory Usage: 3278kB
+                                 ->  Seq Scan on flight f  (cost=0.00..833.48 rows=41648 width=36) (actual time=0.049..11.918 rows=41648 loops=1)
+                     ->  Hash  (cost=557503.62..557503.62 rows=5000 width=29) (actual time=21826.241..21826.245 rows=5019 loops=1)
+                           Buckets: 8192  Batches: 1  Memory Usage: 371kB
+                           ->  Hash Right Join  (cost=158.00..557503.62 rows=5000 width=29) (actual time=10748.770..21819.415 rows=5019 loops=1)
+                                 Hash Cond: ((dep_weather.airport_id = dep_airport.airport_id) AND (dep_weather.update_time = (SubPlan 2)))
+                                 ->  Seq Scan on weather dep_weather  (cost=0.00..737.84 rows=44984 width=12) (actual time=0.030..5.947 rows=44984 loops=1)
+                                 ->  Hash  (cost=83.00..83.00 rows=5000 width=21) (actual time=10747.659..10747.662 rows=5000 loops=1)
+                                       Buckets: 8192  Batches: 1  Memory Usage: 331kB
+                                       ->  Seq Scan on airport dep_airport  (cost=0.00..83.00 rows=5000 width=21) (actual time=0.027..3.343 rows=5000 loops=1)
+                                       SubPlan 2
+                                         ->  Result  (cost=247.35..247.36 rows=1 width=4) (actual time=2.172..2.172 rows=1 loops=10018)
+                                               InitPlan 1 (returns $1)
+                                                 ->  Limit  (cost=0.29..247.35 rows=1 width=4) (actual time=2.170..2.171 rows=1 loops=10018)
+                                                       ->  Index Scan Backward using idx_weather_update_time on weather  (cost=0.29..2223.87 rows=9 width=4) (actual time=2.170..2.170 rows=1 loops=10018)
+                                                             Index Cond: (update_time IS NOT NULL)
+                                                             Filter: (airport_id = dep_airport.airport_id)
+                                                             Rows Removed by Filter: 4974
+               ->  Hash  (cost=410.00..410.00 rows=25000 width=9) (actual time=10.508..10.508 rows=25000 loops=1)
+                     Buckets: 32768  Batches: 1  Memory Usage: 1280kB
+                     ->  Seq Scan on gate dep_gate  (cost=0.00..410.00 rows=25000 width=9) (actual time=0.024..4.522 rows=25000 loops=1)
+         ->  Hash  (cost=410.00..410.00 rows=25000 width=9) (actual time=29.430..29.431 rows=25000 loops=1)
+               Buckets: 32768  Batches: 1  Memory Usage: 1280kB
+               ->  Seq Scan on gate arr_gate  (cost=0.00..410.00 rows=25000 width=9) (actual time=0.270..20.757 rows=25000 loops=1)
+ Planning Time: 16.840 ms
+ Execution Time: 45310.846 ms
+(52 rows)
 
 
 Query 2:
-"Sort  (cost=2009.74..2016.79 rows=2819 width=53) (actual time=38.492..38.743 rows=2819 loops=1)"
-"  Sort Key: a.airport_id"
-"  Sort Method: quicksort  Memory: 244kB"
-"  ->  HashAggregate  (cost=1812.96..1848.20 rows=2819 width=53) (actual time=35.356..37.025 rows=2819 loops=1)"
-"        Group Key: a.airport_id"
-"        Batches: 1  Memory Usage: 1393kB"
-"        ->  Hash Right Join  (cost=862.75..1784.78 rows=5636 width=29) (actual time=13.104..31.826 rows=5636 loops=1)"
-"              Hash Cond: (""*SELECT* 1"".airport_id = a.airport_id)"
-"              ->  Append  (cost=766.32..1673.54 rows=5636 width=12) (actual time=11.728..27.886 rows=5636 loops=1)"
-"                    ->  Subquery Scan on ""*SELECT* 1""  (cost=766.32..822.70 rows=2819 width=12) (actual time=11.727..12.652 rows=2819 loops=1)"
-"                          ->  HashAggregate  (cost=766.32..794.51 rows=2819 width=12) (actual time=11.725..12.346 rows=2819 loops=1)"
-"                                Group Key: flight.departure_airport_id"
-"                                Batches: 1  Memory Usage: 369kB"
-"                                ->  Seq Scan on flight  (cost=0.00..652.88 rows=22688 width=4) (actual time=0.031..3.007 rows=22688 loops=1)"
-"                    ->  Subquery Scan on ""*SELECT* 2""  (cost=766.32..822.66 rows=2817 width=12) (actual time=13.600..14.788 rows=2817 loops=1)"
-"                          ->  HashAggregate  (cost=766.32..794.49 rows=2817 width=12) (actual time=13.597..14.425 rows=2817 loops=1)"
-"                                Group Key: flight_1.arrival_airport_id"
-"                                Batches: 1  Memory Usage: 369kB"
-"                                ->  Seq Scan on flight flight_1  (cost=0.00..652.88 rows=22688 width=4) (actual time=0.040..3.318 rows=22688 loops=1)"
-"              ->  Hash  (cost=61.19..61.19 rows=2819 width=21) (actual time=1.327..1.328 rows=2819 loops=1)"
-"                    Buckets: 4096  Batches: 1  Memory Usage: 179kB"
-"                    ->  Seq Scan on airport a  (cost=0.00..61.19 rows=2819 width=21) (actual time=0.051..0.495 rows=2819 loops=1)"
-"Planning Time: 0.560 ms"
-"Execution Time: 39.861 ms"
+ Sort  (cost=2915.28..2927.78 rows=5000 width=53) (actual time=51.187..51.525 rows=5000 loops=1)
+   Sort Key: a.airport_id
+   Sort Method: quicksort  Memory: 453kB
+   ->  HashAggregate  (cost=2545.59..2608.09 rows=5000 width=53) (actual time=47.054..49.125 rows=5000 loops=1)
+         Group Key: a.airport_id
+         Batches: 1  Memory Usage: 2257kB
+         ->  Hash Right Join  (cost=1187.22..2497.06 rows=9705 width=29) (actual time=21.042..42.319 rows=9876 loops=1)
+               Hash Cond: ("*SELECT* 1".airport_id = a.airport_id)
+               ->  Append  (cost=1041.72..2326.07 rows=9705 width=12) (actual time=19.648..37.621 rows=9832 loops=1)
+                     ->  Subquery Scan on "*SELECT* 1"  (cost=1041.72..1138.54 rows=4841 width=12) (actual time=19.648..21.135 rows=4907 loops=1)
+                           ->  HashAggregate  (cost=1041.72..1090.13 rows=4841 width=12) (actual time=19.645..20.681 rows=4907 loops=1)
+                                 Group Key: flight.departure_airport_id
+                                 Batches: 1  Memory Usage: 721kB
+                                 ->  Seq Scan on flight  (cost=0.00..833.48 rows=41648 width=4) (actual time=0.015..5.533 rows=41648 loops=1)
+                     ->  Subquery Scan on "*SELECT* 2"  (cost=1041.72..1139.00 rows=4864 width=12) (actual time=14.559..15.851 rows=4925 loops=1)
+                           ->  HashAggregate  (cost=1041.72..1090.36 rows=4864 width=12) (actual time=14.557..15.397 rows=4925 loops=1)
+                                 Group Key: flight_1.arrival_airport_id
+                                 Batches: 1  Memory Usage: 721kB
+                                 ->  Seq Scan on flight flight_1  (cost=0.00..833.48 rows=41648 width=4) (actual time=0.029..4.024 rows=41648 loops=1)
+               ->  Hash  (cost=83.00..83.00 rows=5000 width=21) (actual time=1.333..1.334 rows=5000 loops=1)
+                     Buckets: 8192  Batches: 1  Memory Usage: 323kB
+                     ->  Seq Scan on airport a  (cost=0.00..83.00 rows=5000 width=21) (actual time=0.022..0.493 rows=5000 loops=1)
+ Planning Time: 6.339 ms
+ Execution Time: 54.767 ms
+(24 rows)
 
 
 Query 3:
-"Sort  (cost=2678.33..2716.20 rows=15147 width=36) (actual time=28.435..30.371 rows=16236 loops=1)"
-"  Sort Key: f.flight_number"
-"  Sort Method: quicksort  Memory: 1399kB"
-"  ->  Hash Right Anti Join  (cost=936.48..1626.62 rows=15147 width=36) (actual time=17.478..22.544 rows=16236 loops=1)"
-"        Hash Cond: (c.flight_number = f.flight_number)"
-"        ->  Seq Scan on crew c  (cost=0.00..642.46 rows=7541 width=4) (actual time=0.041..4.045 rows=7541 loops=1)"
-"              Filter: (crew_type = 'Pilot'::crew_type)"
-"              Rows Removed by Filter: 15136"
-"        ->  Hash  (cost=652.88..652.88 rows=22688 width=36) (actual time=9.250..9.252 rows=22688 loops=1)"
-"              Buckets: 32768  Batches: 1  Memory Usage: 1763kB"
-"              ->  Seq Scan on flight f  (cost=0.00..652.88 rows=22688 width=36) (actual time=0.031..3.390 rows=22688 loops=1)"
-"Planning Time: 0.290 ms"
-"Execution Time: 31.458 ms"
-
+Sort  (cost=4374.25..4443.78 rows=27813 width=36) (actual time=74.698..78.229 rows=29807 loops=1)
+   Sort Key: f.flight_number
+   Sort Method: quicksort  Memory: 2631kB
+   ->  Hash Right Anti Join  (cost=1354.08..2321.16 rows=27813 width=36) (actual time=51.810..61.326 rows=29807 loops=1)         Hash Cond: (c.flight_number = f.flight_number)
+         ->  Seq Scan on crew c  (cost=0.00..879.64 rows=13835 width=4) (actual time=0.646..31.097 rows=13921 loops=1)
+               Filter: (crew_type = 'Pilot'::crew_type)
+               Rows Removed by Filter: 27730
+         ->  Hash  (cost=833.48..833.48 rows=41648 width=36) (actual time=13.862..13.864 rows=41648 loops=1)
+               Buckets: 65536  Batches: 1  Memory Usage: 3278kB
+               ->  Seq Scan on flight f  (cost=0.00..833.48 rows=41648 width=36) (actual time=0.032..5.496 rows=41648 loops=1)
+ Planning Time: 2.436 ms
+ Execution Time: 80.780 ms
+(13 rows)
 
 Query 4:
 "Sort  (cost=2278560.71..2278560.71 rows=1 width=74) (actual time=4408.755..4408.760 rows=0 loops=1)"
@@ -151,3 +159,138 @@ Query 6:
 "                          Index Cond: (current_status = 'Boarding'::aircraft_status)"
 "Planning Time: 4.565 ms"
 "Execution Time: 6.622 ms"
+
+Query 7:
+Delete on crew  (cost=1391.22..2476.05 rows=0 width=0) (actual time=62.020..62.023 rows=0 loops=1)
+   ->  Hash Semi Join  (cost=1391.22..2476.05 rows=8502 width=18) (actual time=22.061..54.252 rows=8349 loops=1)
+         Hash Cond: (crew.flight_number = f.flight_number)
+         ->  Seq Scan on crew  (cost=0.00..859.00 rows=50000 width=10) (actual time=0.420..24.973 rows=50000 loops=1)
+         ->  Hash  (cost=1284.94..1284.94 rows=8502 width=16) (actual time=21.585..21.588 rows=8352 loops=1)
+               Buckets: 16384  Batches: 1  Memory Usage: 536kB
+               ->  Hash Join  (cost=236.67..1284.94 rows=8502 width=16) (actual time=2.618..19.331 rows=8352 loops=1)
+                     Hash Cond: (f.aircraft_id = a.aircraft_id)
+                     ->  Seq Scan on flight f  (cost=0.00..917.00 rows=50000 width=14) (actual time=0.009..9.798 rows=50000 loops=1)
+                     ->  Hash  (cost=194.16..194.16 rows=3401 width=10) (actual time=2.586..2.587 rows=3401 loops=1)
+                           Buckets: 4096  Batches: 1  Memory Usage: 179kB
+                           ->  Bitmap Heap Scan on aircraft a  (cost=42.65..194.16 rows=3401 width=10) (actual time=1.225..1.850 rows=3401 loops=1)
+                                 Recheck Cond: (current_status = 'Under maintenance'::aircraft_status)
+                                 Heap Blocks: exact=109
+                                 ->  Bitmap Index Scan on idx_aircraft_current_status  (cost=0.00..41.80 rows=3401 width=0) (actual time=1.202..1.202 rows=3401 loops=1)
+                                       Index Cond: (current_status = 'Under maintenance'::aircraft_status)
+ Planning Time: 20.501 ms
+ Execution Time: 63.814 ms
+(18 rows)
+Delete on passenger  (cost=1391.22..3674.89 rows=0 width=0) (actual time=150.213..150.217 rows=0 loops=1)
+   ->  Hash Semi Join  (cost=1391.22..3674.89 rows=17004 width=18) (actual time=19.332..126.726 rows=16611 loops=1)
+         Hash Cond: (passenger.flight_number = f.flight_number)
+         ->  Seq Scan on passenger  (cost=0.00..1832.00 rows=100000 width=10) (actual time=0.036..85.848 rows=100000 loops=1)
+         ->  Hash  (cost=1284.94..1284.94 rows=8502 width=16) (actual time=19.178..19.182 rows=8352 loops=1)
+               Buckets: 16384  Batches: 1  Memory Usage: 536kB
+               ->  Hash Join  (cost=236.67..1284.94 rows=8502 width=16) (actual time=1.547..17.053 rows=8352 loops=1)
+                     Hash Cond: (f.aircraft_id = a.aircraft_id)
+                     ->  Seq Scan on flight f  (cost=0.00..917.00 rows=50000 width=14) (actual time=0.011..8.303 rows=50000 loops=1)
+                     ->  Hash  (cost=194.16..194.16 rows=3401 width=10) (actual time=1.431..1.433 rows=3401 loops=1)
+                           Buckets: 4096  Batches: 1  Memory Usage: 179kB
+                           ->  Bitmap Heap Scan on aircraft a  (cost=42.65..194.16 rows=3401 width=10) (actual time=0.126..0.874 rows=3401 loops=1)
+                                 Recheck Cond: (current_status = 'Under maintenance'::aircraft_status)
+                                 Heap Blocks: exact=109
+                                 ->  Bitmap Index Scan on idx_aircraft_current_status  (cost=0.00..41.80 rows=3401 width=0) (actual time=0.105..0.106 rows=3401 loops=1)
+                                       Index Cond: (current_status = 'Under maintenance'::aircraft_status)
+ Planning Time: 2.537 ms
+ Execution Time: 150.576 ms
+(18 rows)
+Delete on flight f  (cost=236.67..1284.94 rows=0 width=0) (actual time=22.463..22.466 rows=0 loops=1)
+   ->  Hash Join  (cost=236.67..1284.94 rows=8502 width=12) (actual time=1.163..12.950 rows=8352 loops=1)
+         Hash Cond: (f.aircraft_id = a.aircraft_id)
+         ->  Seq Scan on flight f  (cost=0.00..917.00 rows=50000 width=10) (actual time=0.007..6.131 rows=50000 loops=1)         ->  Hash  (cost=194.16..194.16 rows=3401 width=10) (actual time=1.141..1.142 rows=3401 loops=1)
+               Buckets: 4096  Batches: 1  Memory Usage: 179kB
+               ->  Bitmap Heap Scan on aircraft a  (cost=42.65..194.16 rows=3401 width=10) (actual time=0.121..0.748 rows=3401 loops=1)
+                     Recheck Cond: (current_status = 'Under maintenance'::aircraft_status)
+                     Heap Blocks: exact=109
+                     ->  Bitmap Index Scan on idx_aircraft_current_status  (cost=0.00..41.80 rows=3401 width=0) (actual time=0.105..0.105 rows=3401 loops=1)
+                           Index Cond: (current_status = 'Under maintenance'::aircraft_status)
+ Planning Time: 0.309 ms
+ Trigger for constraint crew_flight_number_fkey: time=47384.308 calls=8352
+ Trigger for constraint passenger_flight_number_fkey: time=95777.098 calls=8352
+ Execution Time: 143199.566 ms
+(15 rows)
+
+Query 8:
+Delete on weather w  (cost=0.00..14418036.57 rows=0 width=0) (actual time=112547.635..112547.636 rows=0 loops=1)
+   ->  Seq Scan on weather w  (cost=0.00..14418036.57 rows=25000 width=6) (actual time=50.893..112508.518 rows=5016 loops=1)
+         Filter: (SubPlan 3)
+         Rows Removed by Filter: 44984
+         SubPlan 3
+           ->  Bitmap Heap Scan on weather  (cost=238.84..337.76 rows=34 width=4) (actual time=2.216..2.234 rows=33 loops=50000)
+                 Recheck Cond: (update_time = $2)
+                 Heap Blocks: exact=1572540
+                 InitPlan 2 (returns $2)
+                   ->  Result  (cost=234.28..234.29 rows=1 width=4) (actual time=2.199..2.199 rows=1 loops=50000)
+                         InitPlan 1 (returns $1)
+                           ->  Limit  (cost=0.29..234.28 rows=1 width=4) (actual time=2.197..2.197 rows=1 loops=50000)
+                                 ->  Index Scan using idx_weather_update_time on weather sub  (cost=0.29..2340.19 rows=10 width=4) (actual time=2.196..2.196 rows=1 loops=50000)
+                                       Index Cond: (update_time IS NOT NULL)
+                                       Filter: (airport_id = w.airport_id)
+                                       Rows Removed by Filter: 4507
+                 ->  Bitmap Index Scan on idx_weather_update_time  (cost=0.00..4.54 rows=34 width=0) (actual time=0.009..0.009 rows=35 loops=50000)
+                       Index Cond: (update_time = $2)
+ Planning Time: 6.466 ms
+ Execution Time: 112550.590 ms
+
+Parameterized Query 1:
+Nested Loop  (cost=1.72..889.53 rows=1 width=38) (actual time=6.696..6.699 rows=0 loops=1)
+   ->  Nested Loop  (cost=1.44..889.23 rows=1 width=38) (actual time=6.695..6.698 rows=0 loops=1)
+         ->  Nested Loop  (cost=1.15..888.90 rows=1 width=39) (actual time=6.695..6.697 rows=0 loops=1)
+               ->  Nested Loop  (cost=0.86..888.59 rows=1 width=39) (actual time=6.695..6.697 rows=0 loops=1)
+                     ->  Nested Loop  (cost=0.58..888.27 rows=1 width=40) (actual time=6.695..6.696 rows=0 loops=1)
+                           ->  Nested Loop  (cost=0.29..887.95 rows=1 width=36) (actual time=6.694..6.695 rows=0 loops=1)
+                                 ->  Seq Scan on crew c  (cost=0.00..879.64 rows=1 width=4) (actual time=6.693..6.694 rows=0 loops=1)
+                                       Filter: ((member_name)::text = 'Ashley Wheeler'::text)
+                                       Rows Removed by Filter: 41651
+                                 ->  Index Scan using flight_pkey on flight f  (cost=0.29..8.31 rows=1 width=36) (never executed)
+                                       Index Cond: (flight_number = c.flight_number)
+                           ->  Index Scan using aircraft_pkey on aircraft a  (cost=0.29..0.32 rows=1 width=12) (never executed)
+                                 Index Cond: (aircraft_id = f.aircraft_id)
+                     ->  Index Scan using gate_pkey on gate d_gate  (cost=0.29..0.33 rows=1 width=7) (never executed)
+                           Index Cond: (gate_id = f.departure_gate_id)
+               ->  Index Scan using airport_pkey on airport d_airport  (cost=0.28..0.30 rows=1 width=8) (never executed)                     Index Cond: (airport_id = f.departure_airport_id)
+         ->  Index Scan using gate_pkey on gate a_gate  (cost=0.29..0.33 rows=1 width=7) (never executed)
+               Index Cond: (gate_id = f.arrival_gate_id)
+   ->  Index Scan using airport_pkey on airport a_airport  (cost=0.28..0.30 rows=1 width=8) (never executed)
+         Index Cond: (airport_id = f.arrival_airport_id)
+ Planning Time: 28.322 ms
+ Execution Time: 8.114 ms
+(23 rows)
+
+Parameterized Query 2:
+Nested Loop  (cost=0.57..1882.98 rows=1 width=4) (actual time=1.415..50.668 rows=1 loops=1)
+   ->  Nested Loop  (cost=0.29..1882.67 rows=1 width=4) (actual time=0.560..49.811 rows=1 loops=1)
+         ->  Seq Scan on passenger p  (cost=0.00..1874.36 rows=1 width=4) (actual time=0.034..49.283 rows=1 loops=1)
+               Filter: ((ticket_number)::text = 'ZOMYM4U7S6'::text)
+               Rows Removed by Filter: 83388
+         ->  Index Scan using flight_pkey on flight f  (cost=0.29..8.31 rows=1 width=8) (actual time=0.522..0.522 rows=1 loops=1)
+               Index Cond: (flight_number = p.flight_number)
+   ->  Index Scan using airport_pkey on airport a_airport  (cost=0.28..0.30 rows=1 width=8) (actual time=0.852..0.852 rows=1 loops=1)
+         Index Cond: (airport_id = f.arrival_airport_id)
+ Planning Time: 0.647 ms
+ Execution Time: 50.700 ms
+(11 rows)
+
+Parameterized Query 3:
+Update on weather  (cost=0.29..8.31 rows=0 width=0) (actual time=0.825..0.826 rows=0 loops=1)
+   ->  Index Scan using weather_pkey on weather  (cost=0.29..8.31 rows=1 width=14) (actual time=0.106..0.107 rows=0 loops=1)
+         Index Cond: (weather_id = 10004)
+         Filter: (airport_id = 2021)
+         Rows Removed by Filter: 1
+ Planning Time: 13.769 ms
+ Execution Time: 4.399 ms
+(7 rows)
+
+Parameterized Query 4:
+Update on passenger  (cost=0.29..8.32 rows=0 width=0) (actual time=1.077..1.079 rows=0 loops=1)
+   ->  Index Scan using passenger_pkey on passenger  (cost=0.29..8.32 rows=1 width=42) (actual time=1.074..1.074 rows=0 loops=1)
+         Index Cond: (passenger_id = 100022)
+         Filter: (((name)::text = 'Stephanie Garcia'::text) AND ((ticket_number)::text = 'ZOMYM4U7S6'::text) AND (flight_number = 84206))
+ Planning Time: 8.226 ms
+ Execution Time: 1.125 ms
+(6 rows)

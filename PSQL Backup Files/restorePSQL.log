@@ -40,5 +40,5 @@ pg_restore: creating FK CONSTRAINT "public.flight flight_departure_gate_id_fkey"
 pg_restore: creating FK CONSTRAINT "public.gate gate_airport_id_fkey"
 pg_restore: creating FK CONSTRAINT "public.passenger passenger_flight_number_fkey"
 pg_restore: creating FK CONSTRAINT "public.weather weather_airport_id_fkey"
-Restore duration: 346 seconds 
+Restore duration: 126 seconds 
 Restoration complete. 

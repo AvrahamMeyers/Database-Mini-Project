@@ -106,6 +106,30 @@ With indexes: [queries output](IndexedQueries.log)
 3. Index on Weather Update Time
  - Query Benefitted: Deleting the oldest weather for each airport and updating weather conditions
 
+### Queries Runtime Results
+| Query Number | Runtime Without Indexing (ms) | Runtime With Indexing (ms) | Indexes used                                     |
+|--------------|-------------------------------|----------------------------|--------------------------------------------------|
+| 1            | 159366.594                    | 45310.846                  | Weather Update Time                              |
+| 2            | 42.486                        | 54.767                     |                                                  |
+| 3            | 108.023                       | 80.780                     |                                                  |
+| 4            | 151728.125                    | 4409.059                   |                                                  |
+| 5            | 109.963                       | 41.476                     |                                                  |
+| 6            | 146.417                       | 6.622                      | Aircraft Current Status                          |
+| 7            | 225,362.711                   | 143,413.956                | Aircraft Current Status                          |
+| 8            | 1023515.512                   | 112550.590                 | Weather Update Time                              |
+
+| 9            | N/A                           | 139.802                    |                                                  |
+| 10           | N/A                           | 6.581                      |                                                  |
+| 11           | N/A                           | 85.197                     |                                                  |
+
+### Parameterized Queries Runtime Results
+| Query Number | Runtime Without Indexing (ms) | Runtime With Indexing (ms) | Indexes used                                     |
+|--------------|-------------------------------|----------------------------|--------------------------------------------------|
+| 1            | 15.224                        | 8.114                      |                                                  |
+| 2            | 84.147                        | 50.700                     |                                                  |
+| 3            | 8.556                         | 4.399                      |                                                  |
+| 4            | 1.756                         | 1.125                      |                                                  |
+
 
 ### Constraints
 [constraints](Constraints.sql)
