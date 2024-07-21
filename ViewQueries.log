@@ -1,0 +1,116 @@
+View 1
+
+Input: SELECT * FROM Passenger_View
+WHERE Flight_Status = 'Delayed' AND Departure_Airport = 'WHI';
+
+Output:
+passenger_id | passenger_name | ticket_number | flight_number | departure_time | arrival_time | departure_airport | departure_gate | arrival_airport | arrival_gate | flight_status
+--------------+----------------+---------------+---------------+----------------+--------------+-------------------+----------------+-----------------+--------------+---------------
+       340553 | Glenn Kelly    | 82W22J98C0    |         51455 | 2020-09-26     | 2020-09-27   | WHI               | W76            | KGI             | R58          | Delayed
+       191358 | Peggy Wright   | FXIQLZCLM0    |         51455 | 2020-09-26     | 2020-09-27   | WHI               | W76            | KGI             | R58          | Delayed
+
+Explanation: Retrieve all passengers who are on a flight that is delayed and the flight is departing from the WHI airport. 
+
+Input:
+INSERT INTO PASSENGER_VIEW (Passenger_ID, Passenger_Name, Ticket_Number, Flight_Number, Departure_Airport, Departure_Gate, Arrival_Airport, Arrival_Gate, Flight_Status)
+VALUES (1, 'Alice', 'ABC123', 1001, 'JFK', 1, 'LAX', 2, 'Delayed');
+
+
+Output:
+ERROR:  cannot insert into view "passenger_view"
+DETAIL:  Views that do not select from a single table or view are not automatically updatable.
+HINT:  To enable inserting into the view, provide an INSTEAD OF INSERT trigger or an unconditional ON INSERT DO INSTEAD rule.
+
+Explanation: Trying to add a new customer Alice. However, the view is not updatable, so the insertion is not allowed.
+
+
+Input:
+UPDATE PASSENGER_VIEW
+SET Flight_Status = 'On time'
+WHERE Flight_Number = 1001;
+
+Output:
+ERROR:  cannot update view "passenger_view"
+DETAIL:  Views that do not select from a single table or view are not automatically updatable.
+HINT:  To enable updating the view, provide an INSTEAD OF UPDATE trigger or an unconditional ON UPDATE DO INSTEAD rule.
+
+Explanation: Trying to update the flight status for all passengers on flight 1001.
+
+
+Input:
+DELETE FROM PASSENGER_VIEW
+WHERE Flight_Number = 1001;
+
+Output:
+ERROR:  cannot delete from view "passenger_view"
+DETAIL:  Views that do not select from a single table or view are not automatically updatable.
+HINT:  To enable deleting from the view, provide an INSTEAD OF DELETE trigger or an unconditional ON DELETE DO INSTEAD rule.
+
+Explanation: Trying to delete all passengers on flight 1001.
+
+
+
+View 2
+
+Input: 
+SELECT * FROM Maintenance_Team_View
+WHERE Departure_Airport = 'TKR';
+
+Output:
+aircraft_id | aircraft_type |  aircraft_status  | flight_number | departure_time | arrival_time | departure_airport | arrival_airport
+-------------+---------------+-------------------+---------------+----------------+--------------+-------------------+-----------------
+       24738 | Airbus A380   | Under maintenance |         85438 | 2023-08-02     | 2023-08-03   | TKR               | SRQ
+       87841 | Airbus A380   | Under maintenance |         52442 | 2022-07-12     | 2022-07-13   | TKR               | BYC
+       45637 | Boeing 737    | Under maintenance |         24968 | 2021-12-10     | 2021-12-11   | TKR               | UZY
+       35262 | Airbus A380   | Under maintenance |         55379 | 2021-05-03     | 2021-05-04   | TKR               | RPN
+
+Explanation: Retrieve all aircraft that are currently under maintenance and are departing from the TKR airport.
+
+The Insert, Update, and Delete operations are not allowed on this view as well, due to the same reason as the Passenger_View.
+
+
+
+View 3
+
+Input: 
+SELECT * FROM Crew_Scheduling_View
+WHERE Departure_Airport = 'NTH';
+
+Output:
+crew_id |    member_name    |   crew_type   | flight_number | departure_time | arrival_time | departure_airport | arrival_airport
+---------+-------------------+---------------+---------------+----------------+--------------+-------------------+-----------------
+   32433 | Amanda Roberts    | First Officer |         10012 | 2023-10-11     | 2023-10-12   | NTH               | IPP
+   77077 | Phyllis Bryant    | Steward       |         51934 | 2020-10-18     | 2020-10-19   | NTH               | FEH
+   31611 | Sarah Moss        | Pilot         |         41939 | 2021-09-25     | 2021-09-25   | NTH               | FGQ
+   56425 | Mackenzie Ryan    | First Officer |         44399 | 2020-02-16     | 2020-02-17   | NTH               | UXU
+   18973 | Eric Thompson     | Steward       |         10012 | 2023-10-11     | 2023-10-12   | NTH               | IPP
+   17335 | April Barrera     | Pilot         |         57021 | 2023-02-03     | 2023-02-03   | NTH               | USN
+   94140 | Michelle Shelton  | First Officer |         37600 | 2023-12-24     | 2023-12-24   | NTH               | GWM
+   23718 | Tony Williams     | Steward       |         35561 | 2022-11-14     | 2022-11-15   | NTH               | VDR
+   52829 | Christian Roberts | First Officer |         28668 | 2021-10-19     | 2021-10-19   | NTH               | XET
+   35666 | Edgar Smith       | Pilot         |         41939 | 2021-09-25     | 2021-09-25   | NTH               | FGQ
+   21675 | William West      | Pilot         |         10012 | 2023-10-11     | 2023-10-12   | NTH               | IPP
+   12375 | David Williams    | Pilot         |         57021 | 2023-02-03     | 2023-02-03   | NTH               | USN
+   39447 | Julie Martinez    | First Officer |         65903 | 2023-01-23     | 2023-01-24   | NTH               | LEU
+   28982 | Colin Cole        | Steward       |         44399 | 2020-02-16     | 2020-02-17   | NTH               | UXU
+   18639 | Lisa Martinez     | Steward       |         44399 | 2020-02-16     | 2020-02-17   | NTH               | UXU
+
+Explanation: Retrieve all crew members who are scheduled to work on flights departing from the NTH airport.
+
+The Insert, Update, and Delete operations are not allowed on this view as well, due to the same reason as the Passenger_View.
+
+
+
+View 4
+
+Input:
+SELECT COUNT(*), departure_time FROM Weather_Impact_Report
+WHERE Flight_status = 'Delayed' AND Weather_conditions = 'Heavy rain' and departure_time = '2020-06-15'
+GROUP BY departure_time;
+
+Output:
+ count | departure_time
+-------+----------------
+     8 | 2020-06-15
+
+Explanation: Count the number of flights that were delayed due to heavy rain on June 15, 2020.

@@ -117,10 +117,9 @@ With indexes: [queries output](IndexedQueries.log)
 | 6            | 146.417                       | 6.622                      | Aircraft Current Status                          |
 | 7            | 225,362.711                   | 143,413.956                | Aircraft Current Status                          |
 | 8            | 1023515.512                   | 112550.590                 | Weather Update Time                              |
-
-| 9            | N/A                           | 139.802                    |                                                  |
-| 10           | N/A                           | 6.581                      |                                                  |
-| 11           | N/A                           | 85.197                     |                                                  |
+| 9            | N/A                           | 117.233                    |                                                  |
+| 10           | N/A                           | 26.862                     |                                                  |
+| 11           | N/A                           | 1229.549                   |                                                  |
 
 ### Parameterized Queries Runtime Results
 | Query Number | Runtime Without Indexing (ms) | Runtime With Indexing (ms) | Indexes used                                     |
@@ -142,9 +141,66 @@ With indexes: [queries output](IndexedQueries.log)
 # Output of queries that break constraints: [constraints.log](Constraints.log)
 
 
+### Stage 3
+
+# Queries
+
+1. Retrieve flight details with crew members and their types
+2. Retrieve flights that are delayed along with the aircraft type and the departure airport city
+3. Update the flight status to 'Cancelled' for flights departing from airports where the weather is 'Thunderstorms with lightning'
+
+Queries are created [here](Queries.sql)
+
+User Sub-Groups:
+1. Passengers and Customer Service Reps: They need to see the details of the flights and their current status. View name: Passenger_View
+2. Maintenance Team: They need to get a snapshot of all of the aircraft that are currently under maintenance, along with the aircrafts future schedules. View name: Maintenance_View
+3. Crew Scheduling Team: They need to manage and schedule crew assignments with a comprehensive overview of crew members, their assigned flights, and the corresponding departure and arrival airports. View name: Crew_Scheduling_View
+4. Flight Operations Team: They need to identify flights that might be impacted by severe weather conditions. This view helps them assess potential delays or disruptions and take necessary actions to mitigate the impact. View name: Weather_Impact_Report
+
+The views are created [here](Views.sql)
+
+Queries for the views are [here](ViewQueries.sql). 
+The output from the queries is logged [here](ViewQueries.log)
+
+### Visualizations
+
+Visualization for View 4
 
 
+Query 1: This query shows the total number of delayed flights due to heavy rain, aggregated over the months of the year
+``` SQL
+SELECT 
+    COUNT(*) AS total_delays,
+    EXTRACT(MONTH FROM departure_time) AS month
+FROM 
+    Weather_Impact_Report
+WHERE 
+    Flight_status = 'Delayed' 
+    AND Weather_conditions = 'Heavy rain'
+GROUP BY 
+    EXTRACT(MONTH FROM departure_time)
+ORDER BY 
+    month;
+```
 
+![View4BarChart](<Query1BarChart.png>)
+
+Visualization for View 1
+
+Query 2: This query shows the total number of passengers who flew on each calendar day of the year, aggregated over all the years of operation
+
+``` SQL
+SELECT 
+	COUNT(*),
+	TO_CHAR(departure_time, 'MM-DD') AS month_day
+	FROM Passenger_View
+GROUP BY
+	TO_CHAR(departure_time, 'MM-DD')
+ORDER BY
+	TO_CHAR(departure_time, 'MM-DD')
+```
+
+![View1LineChart](<Query2LineChart.png>)
 
 
 

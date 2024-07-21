@@ -31,6 +31,9 @@ pg_restore: creating CONSTRAINT "public.flight flight_pkey"
 pg_restore: creating CONSTRAINT "public.gate gate_pkey"
 pg_restore: creating CONSTRAINT "public.passenger passenger_pkey"
 pg_restore: creating CONSTRAINT "public.weather weather_pkey"
+pg_restore: creating INDEX "public.idx_aircraft_current_status"
+pg_restore: creating INDEX "public.idx_flight_aircraft_id"
+pg_restore: creating INDEX "public.idx_weather_update_time"
 pg_restore: creating FK CONSTRAINT "public.crew crew_flight_number_fkey"
 pg_restore: creating FK CONSTRAINT "public.flight flight_aircraft_id_fkey"
 pg_restore: creating FK CONSTRAINT "public.flight flight_arrival_airport_id_fkey"
@@ -40,5 +43,5 @@ pg_restore: creating FK CONSTRAINT "public.flight flight_departure_gate_id_fkey"
 pg_restore: creating FK CONSTRAINT "public.gate gate_airport_id_fkey"
 pg_restore: creating FK CONSTRAINT "public.passenger passenger_flight_number_fkey"
 pg_restore: creating FK CONSTRAINT "public.weather weather_airport_id_fkey"
-Restore duration: 126 seconds 
+Restore duration: 220 seconds 
 Restoration complete. 
