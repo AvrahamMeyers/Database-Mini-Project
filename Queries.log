@@ -285,3 +285,64 @@ Update on passenger  (cost=0.29..8.32 rows=0 width=0) (actual time=1.695..1.696 
  Execution Time: 1.756 ms
 (6 rows)
 
+Query 1 using function 1:
+Sort  (cost=10767.45..10892.45 rows=50000 width=88) (actual time=143347.823..143354.586 rows=50322 loops=1)
+   Sort Key: f.flight_number
+   Sort Method: external merge  Disk: 5064kB
+   CTE recent_weather
+     ->  Function Scan on get_recent_weather  (cost=0.25..10.25 rows=1000 width=48) (actual time=143088.566..143089.028 rows=5019 loops=1)
+   ->  Hash Join  (cost=1906.25..4460.79 rows=50000 width=88) (actual time=143119.882..143281.209 rows=50322 loops=1)
+         Hash Cond: (f.arrival_gate_id = arr_gate.gate_id)
+         ->  Hash Join  (cost=1183.75..3607.02 rows=50000 width=83) (actual time=143112.240..143235.662 rows=50322 loops=1)
+               Hash Cond: (f.departure_gate_id = dep_gate.gate_id)
+               ->  Hash Join  (cost=461.25..2753.25 rows=50000 width=78) (actual time=143105.723..143192.808 rows=50322 loops=1)
+                     Hash Cond: (f.departure_airport_id = dep_airport.airport_id)
+                     ->  Hash Join  (cost=230.62..1835.12 rows=50000 width=57) (actual time=9.142..59.064 rows=50153 loops=1)
+                           Hash Cond: (f.arrival_airport_id = arr_airport.airport_id)
+                           ->  Seq Scan on flight f  (cost=0.00..917.00 rows=50000 width=36) (actual time=0.045..7.954 rows=50000 loops=1)
+                           ->  Hash  (cost=168.12..168.12 rows=5000 width=29) (actual time=9.032..9.035 rows=5019 loops=1)
+                                 Buckets: 8192  Batches: 1  Memory Usage: 371kB
+                                 ->  Hash Right Join  (cost=145.50..168.12 rows=5000 width=29) (actual time=3.013..6.970 rows=5019 loops=1)
+                                       Hash Cond: (arr_weather.airport_id = arr_airport.airport_id)
+                                       ->  CTE Scan on recent_weather arr_weather  (cost=0.00..20.00 rows=1000 width=12) (actual time=0.002..0.825 rows=5019 loops=1)
+                                       ->  Hash  (cost=83.00..83.00 rows=5000 width=21) (actual time=2.958..2.959 rows=5000 loops=1)
+                                             Buckets: 8192  Batches: 1  Memory Usage: 331kB
+                                             ->  Seq Scan on airport arr_airport  (cost=0.00..83.00 rows=5000 width=21) (actual time=0.015..1.202 rows=5000 loops=1)
+                     ->  Hash  (cost=168.12..168.12 rows=5000 width=29) (actual time=143096.547..143096.550 rows=5019 loops=1)
+                           Buckets: 8192  Batches: 1  Memory Usage: 371kB
+                           ->  Hash Right Join  (cost=145.50..168.12 rows=5000 width=29) (actual time=143089.922..143094.817 rows=5019 loops=1)
+                                 Hash Cond: (dep_weather.airport_id = dep_airport.airport_id)
+                                 ->  CTE Scan on recent_weather dep_weather  (cost=0.00..20.00 rows=1000 width=12) (actual time=143088.573..143090.573 rows=5019 loops=1)
+                                 ->  Hash  (cost=83.00..83.00 rows=5000 width=21) (actual time=1.315..1.316 rows=5000 loops=1)
+                                       Buckets: 8192  Batches: 1  Memory Usage: 331kB
+                                       ->  Seq Scan on airport dep_airport  (cost=0.00..83.00 rows=5000 width=21) (actual time=0.011..0.547 rows=5000 loops=1)
+               ->  Hash  (cost=410.00..410.00 rows=25000 width=9) (actual time=6.390..6.390 rows=25000 loops=1)
+                     Buckets: 32768  Batches: 1  Memory Usage: 1280kB
+                     ->  Seq Scan on gate dep_gate  (cost=0.00..410.00 rows=25000 width=9) (actual time=0.014..2.772 rows=25000 loops=1)
+         ->  Hash  (cost=410.00..410.00 rows=25000 width=9) (actual time=7.525..7.526 rows=25000 loops=1)
+               Buckets: 32768  Batches: 1  Memory Usage: 1280kB
+               ->  Seq Scan on gate arr_gate  (cost=0.00..410.00 rows=25000 width=9) (actual time=0.031..3.166 rows=25000 loops=1)
+ Planning Time: 1.506 ms
+ Execution Time: 143359.596 ms
+ (38 rows)
+
+ Query 11 using function 2:
+ Result  (cost=0.00..0.26 rows=1 width=4) (actual time=99770.121..99770.122 rows=1 loops=1)
+ Planning Time: 0.054 ms
+ Execution Time: 99770.155 ms
+(3 rows)
+
+Query 10 using function 3:
+Function Scan on get_all_flights_by_status  (cost=0.25..10.25 rows=1000 width=44) (actual time=46.398..46.631 rows=5666 loops=1)
+ Planning Time: 0.065 ms
+ Execution Time: 46.922 ms
+(3 rows)
+
+Query 2 using function 4:
+Nested Loop  (cost=0.53..63021.51 rows=1000 width=25) (actual time=103.064..382899.908 rows=5000 loops=1)
+   ->  Index Scan using airport_pkey on airport a  (cost=0.28..271.26 rows=5000 width=21) (actual time=0.040..39.594 rows=5000 loops=1)
+   ->  Function Scan on get_total_flights_for_airport t  (cost=0.25..12.75 rows=5 width=8) (actual time=76.567..76.567 rows=1 loops=5000)
+         Filter: (a.airport_id = airport_id)
+ Planning Time: 8.193 ms
+ Execution Time: 382903.958 ms
+(6 rows)

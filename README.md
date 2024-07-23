@@ -203,4 +203,24 @@ ORDER BY
 ![View1LineChart](<Query2LineChart.png>)
 
 
+### Functions
+We created four functions to make the queries more readable and reusable as well.
 
+1. Function 1: get_recent_weather() Returns the most recent weather conditions for each airport
+2. Function 2: cancel_flights_due_to_weather(weather_condition VARCHAR) Cancels all flights that are scheduled to depart from an airport with the specified weather condition
+3. Function 3: get_all_flights_by_status(flight_status VARCHAR) Returns all flights with a specific status with the following columns: Flight_Number, Departure_Time, Aircraft_Type, Departure_City
+4. Function 4: get_total_flights_for_airport(airport_id INT) Returns the total number of flights for a specific airport
+
+[Function Creation](Functions.sql)
+
+Query Timing Analysis:
+| Query Number | Runtime Without Function (ms) | Runtime With Function (ms) | Function Used                                    |
+|--------------|-------------------------------|----------------------------|--------------------------------------------------|
+| 1            | 45310.846                     | 143359.596                 | get_recent_weather                               |
+| 11           | 1229.549                      | 99770.155                  | cancel_flights_due_to_weather                    |
+| 10           | 26.862                        | 46.922                     | get_all_flights_by_status                        |
+| 2            | 54.767                        | 382903.958                 | get_total_flights_for_airport                    |
+
+[Full Queries Logging](Queries.log)
+
+### Triggers
