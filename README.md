@@ -244,9 +244,10 @@ Trigger Queries:
 Updating Flight Status to Departed
 
 Flight Table
+```
  flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id
 ---------------+----------------+--------------+---------------+-------------+-------------------+----------------------+-----------------+--------------------
-         21908 | 2020-10-02     | 2020-10-02   | Boarding      |       99153 |             88071 |                 3195 |           51832 |               3935
+         21908 | 2020-10-02     | 2020-10-02   | Boarding      |       99153 |             88071 |                 3195 |           51832 |               3935```
 
 Previous Aircraft value - status is Boarding
  aircraft_id | aircraft_type | current_status
