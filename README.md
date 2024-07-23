@@ -224,3 +224,56 @@ Query Timing Analysis:
 [Full Queries Logging](Queries.log)
 
 ### Triggers
+
+1. Flight Status Update:
+Activated after update of flights status
+The trigger updates the status of the aircraft for that flight based on the flight status
+    - Departed : In flight
+    - Boarding : Boarding
+    - Delayed : Taxiing
+    - Cancelled : Under maintenance
+    - On time : Parked
+
+2. Weather Update:
+Activated after new weather is added to Weather table
+Updates flight status of flights that are departing from that airport within the next day
+    - Weather condition: Snow, Heavy rain, Foggy, Strong wind : Delayed
+    - Weather condition: Thunderstorms with rain, Thunderstorms with lightning, Frost, Icy runway: Cancelled
+
+Trigger Queries:
+Updating Flight Status to Departed
+
+Flight Table
+ flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id
+---------------+----------------+--------------+---------------+-------------+-------------------+----------------------+-----------------+--------------------
+         21908 | 2020-10-02     | 2020-10-02   | Boarding      |       99153 |             88071 |                 3195 |           51832 |               3935
+
+Previous Aircraft value - status is Boarding
+ aircraft_id | aircraft_type | current_status
+-------------+---------------+----------------
+       99153 | Airbus A380   | Boarding
+
+After updating the flight status - aircraft status is In Flight
+ aircraft_id | aircraft_type | current_status
+-------------+---------------+----------------
+       99153 | Airbus A380   | In flight
+
+Inserting new Weather instance:
+
+Weather Table:
+ airport_id | airport_name | recent_weather_id |    recent_conditions    | recent_update_time
+------------+--------------+-------------------+-------------------------+--------------------
+       4740 | ADX          |                 1 | Thunderstorms with rain | 2024-07-23
+
+Previous Flight Table value:
+ flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id
+---------------+----------------+--------------+---------------+-------------+-------------------+----------------------+-----------------+--------------------
+         58924 | 2024-07-23     | 2022-04-21   | Boarding      |       27323 |             62272 |                 4740 |           29384 |               7566
+         26420 | 2024-07-24     | 2023-08-01   | On time       |       42408 |             21619 |                 4740 |           38734 |               3140
+
+New Flight table value: status has been updated to cancelled
+ flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id
+---------------+----------------+--------------+---------------+-------------+-------------------+----------------------+-----------------+--------------------
+         58924 | 2024-07-23     | 2022-04-21   | Cancelled     |       27323 |             62272 |                 4740 |           29384 |               7566
+         26420 | 2024-07-24     | 2023-08-01   | Cancelled     |       42408 |             21619 |                 4740 |           38734 |               3140
+
