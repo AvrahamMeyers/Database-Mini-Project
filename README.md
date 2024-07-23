@@ -290,3 +290,4 @@ New Flight table value: status has been updated to cancelled
 |         58924 | 2024-07-23     | 2022-04-21   | Cancelled     |       27323 |             62272 |                 4740 |           29384 |               7566
 |         26420 | 2024-07-24     | 2023-08-01   | Cancelled     |       42408 |             21619 |                 4740 |           38734 |               3140
 
+
