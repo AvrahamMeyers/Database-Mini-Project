@@ -243,38 +243,50 @@ Updates flight status of flights that are departing from that airport within the
 Trigger Queries:
 Updating Flight Status to Departed
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 Flight Table
-```
- flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id
----------------+----------------+--------------+---------------+-------------+-------------------+----------------------+-----------------+--------------------
-         21908 | 2020-10-02     | 2020-10-02   | Boarding      |       99153 |             88071 |                 3195 |           51832 |               3935```
+
+Previous flight table value:
+| flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id  |
+|---------------|----------------|--------------|---------------|-------------|-------------------|----------------------|-----------------|--------------------|
+|         21908 | 2020-10-02     | 2020-10-02   | Boarding      |       99153 |             88071 |                 3195 |           51832 |               3935
 
 Previous Aircraft value - status is Boarding
- aircraft_id | aircraft_type | current_status
--------------+---------------+----------------
-       99153 | Airbus A380   | Boarding
+| aircraft_id | aircraft_type | current_status |
+|-------------|---------------|----------------|
+|       99153 | Airbus A380   | Boarding       |
+
+After updating flight table value:
+| flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id  |
+|---------------|----------------|--------------|---------------|-------------|-------------------|----------------------|-----------------|--------------------|
+|         21908 | 2020-10-02     | 2020-10-02   | Departed      |       99153 |             88071 |                 3195 |           51832 |               3935
 
 After updating the flight status - aircraft status is In Flight
- aircraft_id | aircraft_type | current_status
--------------+---------------+----------------
-       99153 | Airbus A380   | In flight
+| aircraft_id | aircraft_type | current_status |
+|-------------|---------------|----------------|
+|       99153 | Airbus A380   | In flight      |
 
 Inserting new Weather instance:
 
 Weather Table:
- airport_id | airport_name | recent_weather_id |    recent_conditions    | recent_update_time
-------------+--------------+-------------------+-------------------------+--------------------
-       4740 | ADX          |                 1 | Thunderstorms with rain | 2024-07-23
+| airport_id | airport_name | recent_weather_id |    recent_conditions    | recent_update_time |
+|------------|--------------|-------------------|-------------------------|--------------------|
+|       4740 | ADX          |                 1 | Thunderstorms with rain | 2024-07-23         |
 
 Previous Flight Table value:
- flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id
----------------+----------------+--------------+---------------+-------------+-------------------+----------------------+-----------------+--------------------
-         58924 | 2024-07-23     | 2022-04-21   | Boarding      |       27323 |             62272 |                 4740 |           29384 |               7566
-         26420 | 2024-07-24     | 2023-08-01   | On time       |       42408 |             21619 |                 4740 |           38734 |               3140
+| flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id  |
+|---------------|----------------|--------------|---------------|-------------|-------------------|----------------------|-----------------|--------------------|
+|         58924 | 2024-07-23     | 2022-04-21   | Boarding      |       27323 |             62272 |                 4740 |           29384 |               7566
+|         26420 | 2024-07-24     | 2023-08-01   | On time       |       42408 |             21619 |                 4740 |           38734 |               3140
 
 New Flight table value: status has been updated to cancelled
- flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id
----------------+----------------+--------------+---------------+-------------+-------------------+----------------------+-----------------+--------------------
-         58924 | 2024-07-23     | 2022-04-21   | Cancelled     |       27323 |             62272 |                 4740 |           29384 |               7566
-         26420 | 2024-07-24     | 2023-08-01   | Cancelled     |       42408 |             21619 |                 4740 |           38734 |               3140
+| flight_number | departure_time | arrival_time | flight_status | aircraft_id | departure_gate_id | departure_airport_id | arrival_gate_id | arrival_airport_id  |
+|---------------|----------------|--------------|---------------|-------------|-------------------|----------------------|-----------------|--------------------|
+|         58924 | 2024-07-23     | 2022-04-21   | Cancelled     |       27323 |             62272 |                 4740 |           29384 |               7566
+|         26420 | 2024-07-24     | 2023-08-01   | Cancelled     |       42408 |             21619 |                 4740 |           38734 |               3140
 
