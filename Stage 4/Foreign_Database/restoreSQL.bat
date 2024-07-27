@@ -2,7 +2,7 @@
 setlocal
 
 rem Define variables
-set DB_NAME=
+set DB_NAME=Foreign
 set DB_USER=postgres
 set BACKUP_FILE=backupSQL.sql
 set LOG_FILE=restoreSQL.log

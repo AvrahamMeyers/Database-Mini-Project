@@ -1,0 +1,11 @@
+Dropping the existing database... 
+dropdb: error: database removal failed: ERROR:  database "Foreign" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+Creating a new database... 
+createdb: error: database creation failed: ERROR:  database "Foreign" already exists
+Restoring the database... 
+The input is a PostgreSQL custom-format dump.
+Use the pg_restore command-line client to restore this dump to a database.
+
+Restore duration: 15 seconds 
+Restoration complete. 
