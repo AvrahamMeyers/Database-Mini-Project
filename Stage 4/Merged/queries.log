@@ -1,0 +1,29 @@
+ Query 1:
+ Hash Join  (cost=2284.93..3887.53 rows=10 width=37) (actual time=21.694..35.086 rows=16 loops=1)
+   Hash Cond: (id.customerid = pc.customer_id)
+   ->  Seq Scan on identification id  (cost=0.00..1340.00 rows=70000 width=23) (actual time=0.037..4.979 rows=70000 loops=1)
+   ->  Hash  (cost=2284.84..2284.84 rows=7 width=26) (actual time=21.168..21.170 rows=12 loops=1)
+         Buckets: 1024  Batches: 1  Memory Usage: 9kB
+         ->  Nested Loop  (cost=1042.98..2284.84 rows=7 width=26) (actual time=9.143..21.155 rows=12 loops=1)
+               ->  Index Only Scan using airport_pkey on airport a  (cost=0.28..4.30 rows=1 width=4) (actual time=0.025..0.026 rows=1 loops=1)
+                     Index Cond: (airportid = 4283)
+                     Heap Fetches: 0
+               ->  Nested Loop  (cost=1042.70..2280.47 rows=7 width=30) (actual time=9.115..21.120 rows=12 loops=1)
+                     ->  Nested Loop  (cost=1042.41..2275.21 rows=17 width=26) (actual time=9.098..21.037 rows=21 loops=1)
+                           ->  Hash Join  (cost=1042.12..2269.80 rows=17 width=26) (actual time=9.068..20.886 rows=21 loops=1)
+                                 Hash Cond: ((p.flight_number)::text = ((f.flightid)::character varying)::text)
+                                 ->  Seq Scan on passenger p  (cost=0.00..915.00 rows=50000 width=24) (actual time=0.014..4.161 rows=50000 loops=1)
+                                 ->  Hash  (cost=1042.00..1042.00 rows=10 width=12) (actual time=8.590..8.591 rows=22 loops=1)
+                                       Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                       ->  Seq Scan on flight f  (cost=0.00..1042.00 rows=10 width=12) (actual time=0.021..8.559 rows=22 loops=1)
+                                             Filter: (dep_airportid = 4283)
+                                             Rows Removed by Filter: 49978
+                           ->  Index Only Scan using passenger_customer_pkey on passenger_customer pc  (cost=0.29..0.32 rows=1 width=8) (actual time=0.006..0.006 rows=1 loops=21)
+                                 Index Cond: (passenger_id = p.passengerid)
+                                 Heap Fetches: 0
+                     ->  Index Only Scan using rewardscust_pkey on rewardscustomer rc  (cost=0.29..0.31 rows=1 width=4) (actual time=0.003..0.003 rows=1 loops=21)
+                           Index Cond: (customerid = pc.customer_id)
+                           Heap Fetches: 0
+ Planning Time: 2.634 ms
+ Execution Time: 35.867 ms
+(27 rows)

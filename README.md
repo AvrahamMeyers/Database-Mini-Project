@@ -35,11 +35,11 @@ Our system for scheduling is modeled around the **Flight** entity, as we account
   - Many-to-One relationship with **Airport**: Weather data is recorded for a specific airport at a specific time. An airport can have multiple weather entries over time.
 
 ### ERD Diagram
-![alt text](<Stage 1/erd.png>)
+![ERD](<Stage 1/erd.png>)
 
 
 ### DSD Diagram
-![alt text](<Stage 1/DSD.png>)
+![DSD](<Stage 1/DSD.png>)
 
 ### Repository Files
 - First run the following file: [database_init.sql](https://github.com/AvrahamMeyers/Database-Mini-Project/blob/main/Stage%201/database_init.sql)
@@ -47,7 +47,7 @@ Our system for scheduling is modeled around the **Flight** entity, as we account
 - The file to create randomly generated data: [create_data.ipynb](https://github.com/AvrahamMeyers/Database-Mini-Project/blob/main/Stage%201/create_data.ipynb)
 
 ### Output from copy data file:
-![alt text](image.png)
+![output](image.png)
 
 
 ### Backup and Restore
@@ -291,3 +291,143 @@ New Flight table value: status has been updated to cancelled
 |         26420 | 2024-07-24     | 2023-08-01   | Cancelled     |       42408 |             21619 |                 4740 |           38734 |               3140
 
 
+### Stage 4
+We merged our database, which dealt with flight scheduling, with Ariel Blumstein and Binyamin Kleins database, which dealt with customers. We had some tables in common, such as flight and flight info, and passenger and customer. Ultimately, we chose to connect the passenger and customer tables, and link the different kinds of customers to our passenger table. Additionally, we were able to add the identification table as well. 
+
+# ERDS
+Original ERD:
+![ERD](<Stage 1/erd.png>)
+
+Foreign ERD:
+![ERD](<Stage 4/Foreign_Database/ERD.png>)
+
+Merged ERD:
+![ERD](<Stage 4/Merged/ERD.png>)
+
+# DSDS
+Original DSD:
+![DSD](<Stage 1/DSD.png>)
+
+Foreign DSD:
+![DSD](<Stage 4/Foreign_Database/DSD.png>)
+
+Merged DSD:
+![DSD](<Stage 4/Merged/DSD.png>)
+
+
+# JSON Files
+Link to erd json files:
+[original erd json](<Stage 1/erd.json>)
+[foreign erd json](<Stage 4/Foreign_Database/ForeignERD.json>)
+[merged erd json](<Stage 4/Merged/mergedERD.json>)
+
+# Link to file with create table statements for the merged database
+[Table Statements](<Stage 4/Merged/dblinkconnection.sql>)
+
+# Views:
+View 1: reward_customers_departure_airports: View the rewards customers and their respective airports
+View 2: flights_with_pet_customers: View flights that have pets on them
+
+View 1 Queries
+Select Query 1: See the top 10 most popular departure airports for rewards customers
+``` SQL
+SELECT
+    airportid,
+    airport_name,
+    airport_city,
+    COUNT(*) AS reward_customer_count
+FROM
+    reward_customers_departure_airports
+GROUP BY
+    airportid, airport_name, airport_city
+ORDER BY
+    reward_customer_count DESC
+LIMIT 10;
+```
+
+Output:
+ airportid | airport_name |    airport_city    | reward_customer_count
+-----------+--------------+--------------------+-----------------------
+      9425 | NTD          | Port Kaitlyntown   |                    19
+      2905 | AKR          | Jasonhaven         |                    18
+      3942 | LXX          | West Brianchester  |                    18
+      5663 | DHV          | Andreburgh         |                    17
+      3000 | KFC          | Taraport           |                    16
+      3827 | QVO          | East Wesleyfurt    |                    16
+      6453 | FHH          | West Michaeltown   |                    16
+      8987 | XYW          | South Lindsaymouth |                    16
+      1914 | MLD          | Lake Williambury   |                    16
+      6569 | KYA          | Nicholasberg       |                    16
+
+Select Query 2: Get the rewards passengers departing from airport with id 4283 and their id information
+```SQL
+SELECT
+    rw.passenger_name,
+    id.idnumber,
+    id.country,
+    id.expirationdate,
+    rw.departure_time
+FROM 
+    reward_customers_departure_airports rw
+JOIN
+    identification id ON rw.customerid = id.customerid
+WHERE
+    airportid = 4283;
+```
+
+Output:
+  passenger_name  | idnumber |                       country                       | expirationdate | departure_time
+------------------+----------+-----------------------------------------------------+----------------+----------------
+ Michael Gonzalez |   131649 | Yemen                                               | 2021-09-30     | 2020-11-20
+ Paige Ayala      |   905411 | Zimbabwe                                            | 2025-05-05     | 2021-05-04
+ Christine Welch  |   214125 | Barbados                                            | 2028-02-12     | 2022-12-19
+ Christine Welch  |   454927 | El Salvador                                         | 2027-03-05     | 2022-12-19
+ Christine Welch  |   877455 | Falkland Islands (Malvinas)                         | 2024-08-20     | 2022-12-19
+ Kevin Bradshaw   |   345052 | Syrian Arab Republic                                | 2027-01-05     | 2021-03-25
+ Rebecca Rowland  |   117112 | Switzerland                                         | 2024-05-23     | 2020-08-30
+ Kevin Bradshaw   |   601910 | Greece                                              | 2028-12-11     | 2021-03-25
+ Rebecca Rowland  |   180859 | Iraq                                                | 2026-01-14     | 2020-08-30
+ Brett Edwards    |   928718 | Cameroon                                            | 2028-12-17     | 2020-01-03
+ Hannah Tran DVM  |   727239 | Burkina Faso                                        | 2026-10-13     | 2021-07-04
+ Christine Welch  |   385930 | Kiribati                                            | 2023-09-09     | 2022-12-19
+ Michael Gonzalez |   540942 | British Indian Ocean Territory (Chagos Archipelago) | 2024-08-19     | 2020-11-20
+ Brett Edwards    |   285355 | Netherlands                                         | 2025-09-20     | 2020-01-03
+ Christine Welch  |    65101 | Swaziland                                           | 2029-02-12     | 2022-12-19
+ Jeffrey Miller   |   901996 | Turkmenistan                                        | 2024-10-08     | 2022-12-19
+
+Timing: 35.867 ms
+[Link to Log File](<Stage 4/Merged/queries.log>)
+
+View 2 Queries:
+Select Query 1: Retrieve flights that have more than one pet on them
+``` SQL
+SELECT
+    flightid,
+    dep_time,
+    arr_time,
+    flight_status,
+    aircraftid,
+    dep_gateid,
+    dep_airportid,
+    arr_gateid,
+    arr_airportid,
+    COUNT(pet_species) AS pet_count
+FROM
+    flights_with_pet_customers
+GROUP BY
+    flightid,
+    dep_time,
+    arr_time,
+    flight_status,
+    aircraftid,
+    dep_gateid,
+    dep_airportid,
+    arr_gateid,
+    arr_airportid
+HAVING
+    COUNT(pet_species) > 1;
+```
+
+Output: (No flights have more than one pet)
+ flightid | dep_time | arr_time | flight_status | aircraftid | dep_gateid | dep_airportid | arr_gateid | arr_airportid | pet_count
+----------+----------+----------+---------------+------------+------------+---------------+------------+---------------+-----------
